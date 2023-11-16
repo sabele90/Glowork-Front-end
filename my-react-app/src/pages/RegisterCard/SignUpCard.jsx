@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./SignUpCard.css";
 import { Card, CardContent, CardHeader } from "@mui/material";
-import avatarImage from "../../../public/images/6681204.png";
+import avatarImage from "../../assets/images/6681204.png";
 const SingUpCard = () => {
   const [formData, setFormData] = useState({
     username: "",

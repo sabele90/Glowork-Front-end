@@ -12,16 +12,42 @@ import {
   TextField,
 } from "@mui/material";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../services/auth";
 
 export default function LoginCard() {
+
   const [visible, setVisible] = useState(false);
+
+const navigate = useNavigate()
+const [email,setEmail] = useState("")
+const [password,setPassword] = useState("")
+
+function handleChangeEmail(e){
+  setEmail(e.target.value)
+}
+
+async function handleLogin(){
+  
+  const response = await login({email,password})
+  localStorage.setItem('token',response.token)
+  //localStorage.setItem('rol',response.token)
+  navigate('/home_user')
+ 
+ 
+ }
+ localStorage.token
+ 
+
   return (
     <>
       <div className="bodyLogin">
         <img
           className="logo"
-          src="./public/images/logo.png"
+          src="./assets/images/logo.png"
           alt="logo"
+
+          
           width="100"
         ></img>
         <Card
@@ -50,7 +76,9 @@ export default function LoginCard() {
               fullWidth={true}
               variant="outlined"
               type="email"
+              onChange={handleChangeEmail }
               label="Email"
+
               InputProps={{
                 startAdornment: (
                   <InputAdornment>
@@ -62,12 +90,15 @@ export default function LoginCard() {
                 ),
               }}
             ></TextField>
+
             <TextField
               margin="dense"
               fullWidth={true}
               variant="outlined"
               type={visible ? "text" : "password"}
+              onChange={(e) => setPassword(e.target.value)}
               label="Password"
+
               InputProps={{
                 startAdornment: (
                   <InputAdornment>
@@ -77,6 +108,7 @@ export default function LoginCard() {
                     </Icon>
                   </InputAdornment>
                 ),
+
                 endAdornment: (
                   <InputAdornment>
                     <IconButton onClick={() => setVisible(!visible)}>
@@ -92,6 +124,7 @@ export default function LoginCard() {
           <CardActions sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               className="button"
+              onClick={handleLogin} 
               size="large"
               color="primary"
               variant="contained"
