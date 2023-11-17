@@ -1,0 +1,16 @@
+.bodySignUp{
+    display: flex;
+    flex-direction:column;
+    align-items: end;
+   
+}
+
+
+
+.containerSignUp{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  
+}

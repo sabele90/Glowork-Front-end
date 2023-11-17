@@ -15,20 +15,24 @@ import { Link } from 'react-router-dom';
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{backgroundColor: 'white'}}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="blue"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 ,color:'black'}}>
-            Home
-          </Typography>
+      <AppBar position="static" sx={{backgroundColor: 'white', display:'flex',justifyContent:'space-evenly'}}>
+   
+        <Toolbar sx={{backgroundColor: 'white', display:'flex',justifyContent:'space-between'}}>
+
+        <Link to="/" style={{ textDecoration: 'none' }}>
+            <Button variant="contained">Home</Button>
+          </Link>
+
+          <Link to="/login" style={{ textDecoration: 'none' }}>
+            <Button variant="contained">login</Button>
+          </Link>
+          <Link to="/register_user" style={{ textDecoration: 'none' }}>
+            <Button variant="contained">REGISTER AS VOLUNTEER</Button>
+          </Link>
+          <Link to="/register_company" style={{ textDecoration: 'none' }}>
+            <Button variant="contained">REGISTER AS COMPANY</Button>
+          </Link>
+
           <CardActions  sx={{ display:"flex", justifyContent:"flex-end"}}>
           <Link size="large" color="primary" variant="contained">
             Have you not registered yet?

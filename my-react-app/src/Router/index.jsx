@@ -2,9 +2,10 @@
 import { createBrowserRouter, redirect } from 'react-router-dom'
 import Root from '../layouts'
 import LoginCard from '../pages/LoginCard/LoginCard'
-import SignUpCard from '../pages/RegisterCard/SignUpCard'
+import SignUpCardUser from '../pages/RegisterCardUser/SignUpCardUser'
 import Home from '../pages/Home/Home'
 import HomeUser from '../pages/HomeUser/HomeUser'
+import SingUpCardCompany from '../pages/RegisterCardCompany/SingUpCardCompany'
 
 
 
@@ -23,8 +24,12 @@ const router = createBrowserRouter([
         },
 
       {
-        path: '/register',
-        element: <SignUpCard/>
+        path: '/register_user',
+        element: <SignUpCardUser/>
+      },
+      {
+        path: '/register_company',
+        element: <SingUpCardCompany/>
       },
       {
         path: '/home_user',

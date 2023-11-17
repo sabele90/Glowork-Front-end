@@ -1,9 +1,8 @@
 
 import './Footer.css'
-
-
-
-import { Box, Grid, Container, Typography, Button } from '@mui/material'
+import { Box, Grid, Container, Typography, Button, IconButton } from '@mui/material'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const elements = [
@@ -44,12 +43,23 @@ function Footer() {
     <footer className='footer'>
       <Box bgcolor="primary.main" color="white" padding={2}>
         <Container>
+     
+
           <Grid container columnSpacing={2}>
             {generateFooterElements()}
+    
           </Grid>
         </Container>
+     
       </Box>
-      <Box textAlign={'center'} py={2} m={0} bgcolor="black" color={'white'}>
+      <Box display={'flex'} justifyContent={'space-evenly'} py={2} m={0} bgcolor="black" color={'white'}>
+        <Link to="https://www.instagram.com/gloworkinfo/?igshid=MTk0NTkyODZkYg%3D%3D&utm_source=qr">
+  
+        <IconButton  sx={{ color: 'white' }}>
+        <InstagramIcon />
+       </IconButton>
+
+       </Link >
         <Typography>© Glowork 2023 - All Rights Reserved</Typography>
       </Box>
     </footer>

@@ -44,10 +44,8 @@ async function handleLogin(){
       <div className="bodyLogin">
         <img
           className="logo"
-          src="./assets/images/logo.png"
+          src="/src/assets/images/logo.png"
           alt="logo"
-
-          
           width="100"
         ></img>
         <Card

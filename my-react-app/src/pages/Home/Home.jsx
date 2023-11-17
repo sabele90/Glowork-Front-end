@@ -1,24 +1,34 @@
 import { Button } from '@mui/material'
-
-import { useNavigate } from 'react-router-dom'
+import './Home.css'
+import ReactPlayer from 'react-player'
 //{localStorage.rol === "admin" && <Button onClick= {onGetAllUsers} variant='contained'>Get all users</Button>}
 export default function Home() {
 
-  const navigate = useNavigate()
 
-  function onLogout(){
-      localStorage.removeItem("token")
-      navigate("/")
-  }
 /*   function onGetAllUsers(){
       navigate("/home/users")
 
   } */
 return (
   <>
-  <div>Home</div>
-  <Button onClick= {onLogout} variant='contained'>Logout</Button>
-  
+  <div className='homeContainer'>Home
+  <div className="video-background">
+      {/* Aquí puedes agregar otros elementos sobre el video, como contenido, botones, etc. */}
+   
+      <ReactPlayer
+        width="100%"
+        height="100%"
+        frameBorder="0" 
+        className="video"
+        title="YouTube Video"
+        url="/src/assets/video/videobackground.mp4"
+        controls={false} // Configura controls en false para ocultar los controles
+        playing={true}  // Auto-reproducción
+        loop={true} 
+       
+      ></ReactPlayer>
+    </div>
+  </div>
   </>
 )
 }

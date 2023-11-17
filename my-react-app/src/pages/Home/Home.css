@@ -1,0 +1,20 @@
+
+.homeContainer{
+    background-color: blue;
+    height: 100vh;
+}
+
+.video-background {
+    position: relative;
+    /* Proporción de aspecto 16:9 */
+  
+  }
+  
+  .video {
+    margin:0;
+
+    width: 100vh;
+  
+    z-index: -1;
+  }
+
