@@ -3,7 +3,10 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./SignUpCardUser.css";
 import { Card, CardContent, CardHeader } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import DateOfBirth from "../../components/DateOfBirth/DateOfBirth";
+import Nationality from "../../components/Nationality/Nationality";
+import ButtonLogin from "../../components/ButtonLogin/ButtonLogin";
 
 const SingUpCardUser = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +36,6 @@ const SingUpCardUser = () => {
       <div className="bodySignUp">
         <div className="containerSignUp">
           <Card
-          
             sx={{
               width: "35%",
               padding: "5%", // Utilizando un porcentaje para el padding
@@ -48,22 +50,23 @@ const SingUpCardUser = () => {
             }}
             raised={true}
           >
-          <CardHeader title="Sign up" sx={{ marginTop: "10px", position: "relative" }}>
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <img
-      src="/src/assets/images/profiile.png"
-      alt="Avatar"
-      style={{
-   
-        borderRadius: "50%",
-        width: "80px",
-        height: "80px",
-        top: "-40px",
-      }}
-    />
-  </div>
-</CardHeader>
-
+            <CardHeader
+              title="Sign up"
+              sx={{ marginTop: "10px", position: "relative" }}
+            >
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <img
+                  src="/src/assets/images/profiile.png"
+                  alt="Avatar"
+                  style={{
+                    borderRadius: "50%",
+                    width: "80px",
+                    height: "80px",
+                    top: "-40px",
+                  }}
+                />
+              </div>
+            </CardHeader>
 
             <CardContent>
               <form onSubmit={handleSubmit}>
@@ -130,10 +133,12 @@ const SingUpCardUser = () => {
                   fullWidth
                   margin="dense"
                 />
-              
-                <Link to="/login" style={{ textDecoration: 'none' }}>
-               <Button sx={{margin:"1rem"}}variant="contained">singup</Button>
-               </Link>
+
+                <DateOfBirth />
+
+                <Nationality />
+
+                <ButtonLogin />
               </form>
             </CardContent>
           </Card>

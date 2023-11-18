@@ -1,44 +1,69 @@
-import './Header.css'
-import React from 'react'
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { withTheme } from '@emotion/react';
-import { red } from '@mui/material/colors';
-import { CardActions } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import { ButtonGroup, CardActions } from "@mui/material";
+import { Link } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import SplitButton from "./SplitButtom/SplitButtom";
 
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{backgroundColor: 'white', display:'flex',justifyContent:'space-evenly'}}>
-   
-        <Toolbar sx={{backgroundColor: 'white', display:'flex',justifyContent:'space-between'}}>
+      <AppBar
+        position="static"
+        sx={{
+          backgroundColor: "white",
+          display: "flex",
+          justifyContent: "space-evenly",
+          textAlign: "center",
+        }}
+      >
+        <Toolbar
+          sx={{
+            backgroundColor: "white",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Box>
+            <img
+              className="logo"
+              src="/src/assets/images/logoHeader.png"
+              alt="logo"
+              width="100"
+              style={{ marginTop: "1px" }}
+            ></img>
+          </Box>
 
-        <Link to="/" style={{ textDecoration: 'none' }}>
-            <Button variant="contained">Home</Button>
-          </Link>
+          <Box
+            sx={{
+              display: "flex",
+              marginRight: "auto", // Alinea a la derecha
+            }}
+          >
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <IconButton color="primary">
+                <HomeIcon />
+              </IconButton>
+            </Link>
+          </Box>
 
-          <Link to="/login" style={{ textDecoration: 'none' }}>
-            <Button variant="contained">login</Button>
-          </Link>
-          <Link to="/register_user" style={{ textDecoration: 'none' }}>
-            <Button variant="contained">REGISTER AS VOLUNTEER</Button>
-          </Link>
-          <Link to="/register_company" style={{ textDecoration: 'none' }}>
-            <Button variant="contained">REGISTER AS COMPANY</Button>
-          </Link>
+          <ButtonGroup
+            variant="contained"
+            aria-label="outlined primary button group"
+          >
+            <SplitButton />
 
-          <CardActions  sx={{ display:"flex", justifyContent:"flex-end"}}>
-          <Link size="large" color="primary" variant="contained">
-            Have you not registered yet?
-          </Link> 
-          </CardActions>
-
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <Button variant="contained">Login</Button>
+            </Link>
+          </ButtonGroup>
         </Toolbar>
       </AppBar>
     </Box>
