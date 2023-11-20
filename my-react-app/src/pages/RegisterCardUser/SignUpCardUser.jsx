@@ -37,36 +37,31 @@ const SingUpCardUser = () => {
         <div className="containerSignUp">
           <Card
             sx={{
-              width: "35%",
+              width: "20%",
+              height: "auto%",
               padding: "5%", // Utilizando un porcentaje para el padding
               margin: "5%", // Utilizando un porcentaje para el margin
-              maxWidth: "70%", // Utilizando un porcentaje para el maxWidth
+              maxWidth: "100%", // Utilizando un porcentaje para el maxWidth
               backgroundColor: "rgba(255, 255, 255, 0.5)",
               borderRadius: "10px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               textAlign: "center",
+              alignItems: "center",
             }}
             raised={true}
           >
-            <CardHeader
-              title="Sign up"
-              sx={{ marginTop: "10px", position: "relative" }}
-            >
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <img
-                  src="/src/assets/images/profiile.png"
-                  alt="Avatar"
-                  style={{
-                    borderRadius: "50%",
-                    width: "80px",
-                    height: "80px",
-                    top: "-40px",
-                  }}
-                />
-              </div>
-            </CardHeader>
+            <img
+              src="/src/assets/images/profiile.png"
+              alt="Avatar"
+              style={{
+                width: "10rem",
+                height: "10rem",
+                display: "flex",
+              }}
+            />
+            <CardHeader title="Sign up"></CardHeader>
 
             <CardContent>
               <form onSubmit={handleSubmit}>
@@ -78,6 +73,7 @@ const SingUpCardUser = () => {
                   onChange={handleChange}
                   fullWidth
                   margin="normal"
+                  size="small"
                 />
                 <TextField
                   label="Surname"
@@ -87,6 +83,7 @@ const SingUpCardUser = () => {
                   onChange={handleChange}
                   fullWidth
                   margin="normal"
+                  size="small"
                 />
                 <TextField
                   label="Correo Electrónico"
@@ -96,6 +93,7 @@ const SingUpCardUser = () => {
                   onChange={handleChange}
                   fullWidth
                   margin="normal"
+                  size="small"
                 />
                 <TextField
                   label="Contraseña"
@@ -105,6 +103,7 @@ const SingUpCardUser = () => {
                   onChange={handleChange}
                   fullWidth
                   margin="normal"
+                  size="small"
                 />
                 <TextField
                   label="Confirmar Contraseña"
@@ -114,6 +113,7 @@ const SingUpCardUser = () => {
                   onChange={handleChange}
                   fullWidth
                   margin="normal"
+                  size="small"
                 />
                 <TextField
                   label="About you"
@@ -122,7 +122,8 @@ const SingUpCardUser = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   fullWidth
-                  margin="dense"
+                  margin="normal"
+                  size="large"
                 />
                 <TextField
                   label="Interest"
@@ -131,7 +132,8 @@ const SingUpCardUser = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   fullWidth
-                  margin="dense"
+                  margin="normal"
+                  size="large"
                 />
 
                 <DateOfBirth />

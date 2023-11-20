@@ -16,28 +16,23 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../services/auth";
 
 export default function LoginCard() {
-
   const [visible, setVisible] = useState(false);
 
-const navigate = useNavigate()
-const [email,setEmail] = useState("")
-const [password,setPassword] = useState("")
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-function handleChangeEmail(e){
-  setEmail(e.target.value)
-}
+  function handleChangeEmail(e) {
+    setEmail(e.target.value);
+  }
 
-async function handleLogin(){
-  
-  const response = await login({email,password})
-  localStorage.setItem('token',response.token)
-  //localStorage.setItem('rol',response.token)
-  navigate('/home_user')
- 
- 
- }
- localStorage.token
- 
+  async function handleLogin() {
+    const response = await login({ email, password });
+    localStorage.setItem("token", response.token);
+    //localStorage.setItem('rol',response.token)
+    navigate("/home_user");
+  }
+  localStorage.token;
 
   return (
     <>
@@ -50,7 +45,8 @@ async function handleLogin(){
         ></img>
         <Card
           sx={{
-            width: "25%",
+            width: "20%",
+            height: "30%",
             padding: "5%", // Utilizando un porcentaje para el padding
             margin: "5%", // Utilizando un porcentaje para el margin
             maxWidth: "70%", // Utilizando un porcentaje para el maxWidth
@@ -74,9 +70,9 @@ async function handleLogin(){
               fullWidth={true}
               variant="outlined"
               type="email"
-              onChange={handleChangeEmail }
+              onChange={handleChangeEmail}
               label="Email"
-
+              size="small"
               InputProps={{
                 startAdornment: (
                   <InputAdornment>
@@ -96,7 +92,7 @@ async function handleLogin(){
               type={visible ? "text" : "password"}
               onChange={(e) => setPassword(e.target.value)}
               label="Password"
-
+              size="small"
               InputProps={{
                 startAdornment: (
                   <InputAdornment>
@@ -122,7 +118,7 @@ async function handleLogin(){
           <CardActions sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               className="button"
-              onClick={handleLogin} 
+              onClick={handleLogin}
               size="large"
               color="primary"
               variant="contained"

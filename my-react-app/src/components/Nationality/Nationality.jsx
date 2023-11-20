@@ -9,6 +9,7 @@ export default function Nationality() {
       disablePortal
       id="combo-box-demo"
       options={""}
+      size="small"
       sx={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label="Nationality" />}
     />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,11 +7,21 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ButtonGroup, CardActions } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import SplitButton from "./SplitButtom/SplitButtom";
 
 export default function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    console.log("Logging out...");
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -58,11 +68,25 @@ export default function Header() {
             variant="contained"
             aria-label="outlined primary button group"
           >
-            <SplitButton />
+            <SplitButton key="splitButton" />
 
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <Button variant="contained">Login</Button>
-            </Link>
+            {isLoggedIn ? (
+              <Button
+                key="logoutButton"
+                variant="contained"
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            ) : (
+              <Link
+                key="loginLink"
+                to="/login"
+                style={{ textDecoration: "none" }}
+              >
+                <Button variant="contained">Login</Button>
+              </Link>
+            )}
           </ButtonGroup>
         </Toolbar>
       </AppBar>

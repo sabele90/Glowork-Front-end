@@ -50,7 +50,7 @@ function Footer() {
     <footer className="footer">
       <Box bgcolor="primary.main" color="white" padding={2}>
         <Container>
-          <Grid container spacing={0} justifyContent="center">
+          <Grid container spacing={0} justifyContent="space-evenly">
             {generateFooterElements()}
           </Grid>
           <Divider bgcolor="primary.main" color="white"></Divider>
@@ -64,10 +64,7 @@ function Footer() {
         bgcolor="primary.main"
         color={"white"}
       >
-        <Box
-          display={"flex"}
-          justifyContent={"center"} // Center the content horizontally
-        >
+        <Box>
           <IconButton sx={{ color: "white" }}>
             <LinkedInIcon />
           </IconButton>
