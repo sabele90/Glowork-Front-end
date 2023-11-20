@@ -1,27 +1,20 @@
-import React, { useState } from "react";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { ButtonGroup, CardActions } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-import SplitButton from "./SplitButtom/SplitButtom";
+import ButtonLoginHeader from "../ButtonLoginHeader/ButtonLoginHeader";
+import { useContext } from "react";
+import { LoginContext } from "../../Context/Login";
+import SideBar from "../SideBar/SideBar";
+
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    console.log("Logging out...");
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    navigate("/");
-  };
-
+  const {login, setLogin} = useContext(LoginContext)
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -41,7 +34,12 @@ export default function Header() {
             alignItems: "center",
           }}
         >
-          <Box>
+             {(login) ? <Box>
+            <SideBar/>
+          </Box> : <></>}
+
+
+         {(!login) ? <Box>
             <img
               className="logo"
               src="/src/assets/images/logoHeader.png"
@@ -49,8 +47,9 @@ export default function Header() {
               width="100"
               style={{ marginTop: "1px" }}
             ></img>
-          </Box>
-
+          </Box> : <></>}
+          
+        
           <Box
             sx={{
               display: "flex",
@@ -62,32 +61,17 @@ export default function Header() {
                 <HomeIcon />
               </IconButton>
             </Link>
+
+        
+
+
           </Box>
+          
 
-          <ButtonGroup
-            variant="contained"
-            aria-label="outlined primary button group"
-          >
-            <SplitButton key="splitButton" />
-
-            {isLoggedIn ? (
-              <Button
-                key="logoutButton"
-                variant="contained"
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
-            ) : (
-              <Link
-                key="loginLink"
-                to="/login"
-                style={{ textDecoration: "none" }}
-              >
-                <Button variant="contained">Login</Button>
-              </Link>
-            )}
-          </ButtonGroup>
+          <Box>
+        <ButtonLoginHeader/>
+        </Box>
+         
         </Toolbar>
       </AppBar>
     </Box>

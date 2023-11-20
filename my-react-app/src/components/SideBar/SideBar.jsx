@@ -11,6 +11,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import StarIcon from '@mui/icons-material/Star';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function SideBar() {
   const [open, setOpen] = useState(false); // State variable we will use to determine if the drawer is open or not.
@@ -34,24 +36,41 @@ function SideBar() {
       onClick={toggleDrawer(false)} // If we click on the drawer's empty space or press any key, the drawer closes
       onKeyDown={toggleDrawer(false)}
     >
+     
       <List>
-        {["Inbox", "Favorites", "Reviews"].map((text, index) => (
+        {["Profile","Inbox", "Favorites", "Reviews"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? (
+                 <AccountCircleIcon/> 
+                
+          
+                ) : (
+                  <>
+                    {text === "Inbox" ? <MailIcon /> : null}
+                    {text === "Favorites" ? <StarIcon /> : null}
+                    {text === "Reviews" ? <MailIcon /> : null}
+                  </>
+              
+              
+              )}
+
+
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
+      
     </Box>
+    
   );
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>Menu</Button>
+      <Button  onClick={toggleDrawer(true)}>Menu</Button>
       <SwipeableDrawer
         anchor="left"
         open={open} // Depends on the state variable

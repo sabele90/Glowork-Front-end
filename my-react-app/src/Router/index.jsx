@@ -6,6 +6,7 @@ import SignUpCardUser from '../pages/RegisterCardUser/SignUpCardUser'
 import Home from '../pages/Home/Home'
 import HomeUser from '../pages/HomeUser/HomeUser'
 import SingUpCardCompany from '../pages/RegisterCardCompany/SingUpCardCompany'
+import Offers from '../pages/Offers/Offers'
 
 
 
@@ -40,8 +41,14 @@ const router = createBrowserRouter([
           }else {
               return null
           }
-    }
+       }
       },
+      {
+        path: '/offers/:countryValue',
+        element: <Offers/>
+      },
+
+
     ]
   }
 ])

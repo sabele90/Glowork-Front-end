@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./LoginCard.css";
 import {
   Button,
@@ -14,9 +14,12 @@ import {
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/auth";
+import { LoginContext } from "../../Context/Login";
 
 export default function LoginCard() {
   const [visible, setVisible] = useState(false);
+  const { setLogin } =useContext(LoginContext)
+  
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -30,6 +33,7 @@ export default function LoginCard() {
     const response = await login({ email, password });
     localStorage.setItem("token", response.token);
     //localStorage.setItem('rol',response.token)
+    setLogin(true)
     navigate("/home_user");
   }
   localStorage.token;

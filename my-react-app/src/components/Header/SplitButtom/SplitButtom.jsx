@@ -9,13 +9,16 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { LoginContext } from "../../../Context/Login"
 
 const options = [
   { label: "Register as a company", path: "/register_company" },
   { label: "Register as a volunteer", path: "/register_user" },
 ];
 
-export default function SplitButton() {
+export default function SplitButtom() {
+  const {login, setLogin} = useContext(LoginContext)
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(null);
@@ -43,7 +46,8 @@ export default function SplitButton() {
   };
 
   return (
-    <React.Fragment>
+    <>
+    {(!login)  ? <React.Fragment>
       <ButtonGroup variant="text" ref={anchorRef} aria-label="split button">
         <Button onClick={handleClick}>Register</Button>
         <Button
@@ -98,6 +102,8 @@ export default function SplitButton() {
           </Grow>
         )}
       </Popper>
-    </React.Fragment>
-  );
-}
+    </React.Fragment> 
+    : null }
+  </>
+  )
+  }
