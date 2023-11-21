@@ -1,0 +1,12 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+ 
+}
+
+.containerOffer{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}

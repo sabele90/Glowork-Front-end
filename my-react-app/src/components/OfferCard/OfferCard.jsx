@@ -13,9 +13,8 @@ export default function OfferCard({ offer }) {
     <Card sx={{ maxWidth: 345, margin: 20 }}>
       <CardMedia
         component="img"
-        alt="green iguana"
         style={{ objectFit: "contain", height: "200px" }}
-        image="https://ugc.production.linktr.ee/xkLIvLbvRdGXEwnVfLSp_9zZl26zbz7LG0doD?io=true&size=avatar-v1_0"
+        image={offer.company.profile_photo}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -27,7 +26,7 @@ export default function OfferCard({ offer }) {
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Link>
+        <Link to={`/offer_subscrptions/${offer.id}`} >
           <Button size="small">Learn More</Button>
         </Link>
       </CardActions>

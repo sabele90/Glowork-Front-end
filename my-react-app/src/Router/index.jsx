@@ -6,6 +6,8 @@ import Home from "../pages/Home/Home";
 import HomeUser from "../pages/HomeUser/HomeUser";
 import SingUpCardCompany from "../pages/RegisterCardCompany/SingUpCardCompany";
 import Offers from "../pages/Offers/Offers";
+import OfferSubscription from "../pages/OfferSubscription/OfferSubscription";
+
 
 const router = createBrowserRouter([
   {
@@ -41,8 +43,12 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/offers/:countryValue",
+        path: "/offer/:countryValue",
         element: <Offers />,
+      },
+      {
+        path: "/offer_subscrptions/:offer_id",
+        element: <OfferSubscription />,
       },
     ],
   },
