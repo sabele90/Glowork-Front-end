@@ -225,24 +225,13 @@ function Map() {
     // Puedes hacer más cosas aquí, como navegar a una página específica para ese país, etc.
   };
   return (
-    <div
-      className="homeUserContainer"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}
-    >
-      <div className="App">
-        <WorldMap
-          color="blue"
-          size="xxl"
-          data={data}
-          onClickFunction={(e) => clickAction(e)}
-        />
-      </div>
+    <div className="App">
+      <WorldMap
+        color="blue"
+        size="xxl"
+        data={data}
+        onClickFunction={(e) => clickAction(e)}
+      />
     </div>
   );
 }

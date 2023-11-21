@@ -1,4 +1,3 @@
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,11 +9,9 @@ import { useContext } from "react";
 import { LoginContext } from "../../Context/Login";
 import SideBar from "../SideBar/SideBar";
 
-
 export default function Header() {
+  const { login, setLogin } = useContext(LoginContext);
 
-  const {login, setLogin} = useContext(LoginContext)
-  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -34,22 +31,28 @@ export default function Header() {
             alignItems: "center",
           }}
         >
-             {(login) ? <Box>
-            <SideBar/>
-          </Box> : <></>}
+          {login ? (
+            <Box>
+              <SideBar />
+            </Box>
+          ) : (
+            <></>
+          )}
 
+          {!login ? (
+            <Box>
+              <img
+                className="logo"
+                src="/src/assets/images/logoHeader.png"
+                alt="logo"
+                width="100"
+                style={{ marginTop: "1px" }}
+              ></img>
+            </Box>
+          ) : (
+            <></>
+          )}
 
-         {(!login) ? <Box>
-            <img
-              className="logo"
-              src="/src/assets/images/logoHeader.png"
-              alt="logo"
-              width="100"
-              style={{ marginTop: "1px" }}
-            ></img>
-          </Box> : <></>}
-          
-        
           <Box
             sx={{
               display: "flex",
@@ -61,17 +64,11 @@ export default function Header() {
                 <HomeIcon />
               </IconButton>
             </Link>
-
-        
-
-
           </Box>
-          
 
           <Box>
-        <ButtonLoginHeader/>
-        </Box>
-         
+            <ButtonLoginHeader />
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>
