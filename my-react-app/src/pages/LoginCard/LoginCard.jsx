@@ -18,8 +18,7 @@ import { LoginContext } from "../../Context/Login";
 
 export default function LoginCard() {
   const [visible, setVisible] = useState(false);
-  const { setLogin } =useContext(LoginContext)
-  
+  const { setLogin } = useContext(LoginContext);
 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -31,12 +30,12 @@ export default function LoginCard() {
 
   async function handleLogin() {
     const response = await login({ email, password });
+    console.log(response);
     localStorage.setItem("token", response.token);
-    //localStorage.setItem('rol',response.token)
-    setLogin(true)
+    localStorage.setItem("rol", response.role);
+    setLogin(true);
     navigate("/home_user");
   }
-  localStorage.token;
 
   return (
     <>

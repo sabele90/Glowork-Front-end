@@ -1,13 +1,7 @@
-
-
 import "./HomeUser.css";
 import Map from "../../components/Map/Map";
 
 function HomeUser() {
-
-
-  return (
-    <Map/>
-  )
+  return <Map />;
 }
 export default HomeUser;
