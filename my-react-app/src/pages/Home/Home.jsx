@@ -11,6 +11,7 @@ export default function Home() {
     <>
       <div className="homeContainer">
         <div className="video-background">
+
           {/* Aquí puedes agregar otros elementos sobre el video, como contenido, botones, etc. */}
           <ReactPlayer
             width="100%"
@@ -22,6 +23,7 @@ export default function Home() {
             controls={false} // Configura controls en false para ocultar los controles
             playing={true} // Auto-reproducción
             loop={true}
+            volume={1}
           ></ReactPlayer>
         </div>
       </div>

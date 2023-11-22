@@ -5,14 +5,19 @@ export async function getOffers() {
   return data
 }
 
-export async function getOffersByContinent(countryValue) {
+export async function getOffersByContinent(continentValue) {
   const { data } = await api.get("/offer");
-  const dataFilterd = data.filter((offer)=> offer.company.continent_id == countryValue)
-  console.log(data)
-  console.log(dataFilterd)
+  const dataFilterd = data.filter((offer)=> offer.company.continent_id == continentValue)
 return dataFilterd 
 }
 
+export async function getOffersByCountry(countryId) {
+ 
+  const { data } = await api.get("/offer");
+  console.log(data)
+  const dataFilterd = data.filter((offer)=> offer.company.country_id === parseInt(countryId))
+  return dataFilterd
+}
 
 export async function getOneOffer(offerId) {
   const { data } = await api.get(`offer/${offerId}`);
@@ -21,10 +26,3 @@ return data
 }
 
 
-//sudamercia 4
-//oceania 8,
-//africa 7 
-//europa 5 
-//asia 1,
-// norteamercia 2, 
-//centroamerica 9,

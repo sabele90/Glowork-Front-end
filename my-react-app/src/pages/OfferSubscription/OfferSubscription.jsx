@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import { getOneOffer } from "../../services/offer";
-import { Card, CardContent, CardHeader } from "@mui/material";
+import { Button, Card, CardContent, CardHeader } from "@mui/material";
 import "./OfferSubscription.css"
 import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid';
+
+
+
 export default function OfferSubscription() {
 
     const [offer, setOffer] = useState({});
@@ -15,9 +18,6 @@ export default function OfferSubscription() {
       setOffer(oneOffer);
     }
  
-
-    
-
     function showOffer() {
        
   return (
@@ -30,7 +30,7 @@ export default function OfferSubscription() {
               key={index}
               src={offer[`photo_${index}`]}
               alt={`Photo ${index}`}
-              style={{ width: '300px', height: '300px', objectFit: 'cover', marginBottom: '10px' }}
+              style={{ marginTop:"3rem",marginLeft:"5rem" ,margin: "0.5rem",width: '300px', height: '300px', objectFit: 'cover', marginBottom: '10px' }}
               className='photo'
             />
           ))}
@@ -44,6 +44,7 @@ export default function OfferSubscription() {
           <Card
             sx={{
               width: "100%",
+              margin:"4rem",
               padding: "5%",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
               borderRadius: "10px",
@@ -55,15 +56,18 @@ export default function OfferSubscription() {
             }}
             raised={true}
           >
-            <CardHeader title={offer.title}></CardHeader>
             <CardContent>
-            <Typography variant="">{offer.description}</Typography>
-            <Typography variant="body2">{offer.start_date}</Typography>
-            <Typography variant="body2">{offer.end_date}</Typography>
-            <Typography variant="body2">{offer.requirements}</Typography>
-            <Typography variant="body2">{offer.benefits}</Typography>
-            <Typography variant="body2">{offer.max_volunteers}</Typography>
+            <CardHeader title={offer.title}></CardHeader>
+            <Typography variant="body2">Start from {offer.start_date} to {offer.end_date}</Typography>
+            <Typography variant="body1">{offer.description}</Typography>
+            <Typography variant="body1">Requeriments</Typography>
+            <Typography variant="body1">{offer.requirements}</Typography>
+            <Typography variant="body1">{offer.benefits}</Typography>
+            <Typography variant="body1-">Max Volunter :</Typography>
+            <Typography variant="body1-"> {offer.max_volunteers}</Typography>
             </CardContent>
+            <Button sx={{ margin: "1rem" }} variant="contained"> APPLY </Button>
+          
           </Card>
         </div>
       </Grid>

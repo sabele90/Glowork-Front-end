@@ -1,12 +1,13 @@
 import "./HomeUser.css";
 import Map from "../../components/Map/Map";
-import CountryFilter from "../../components/CountryFilter/CountryFilter";
+import CountryList from "../../components/CountryList/CountryList";
 
 function HomeUser() {
   return (
     <>
-      <CountryFilter />
+      <CountryList />
       <Map />;
+ 
     </>
   );
 }

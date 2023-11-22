@@ -30,7 +30,6 @@ export default function LoginCard() {
 
   async function handleLogin() {
     const response = await login({ email, password });
-    console.log(response);
     localStorage.setItem("token", response.token);
     localStorage.setItem("rol", response.role);
     setLogin(true);

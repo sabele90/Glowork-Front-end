@@ -212,27 +212,31 @@ function Map() {
     { country: "tv", value: 8 }, // Tuvalu
     { country: "vu", value: 8 }, // Vanuatu
     // Puedes agregar más países según sea necesario
-  ];
+  ]
 
   const clickAction = (e) => {
-    console.log(e.countryValue);
-    const countryValue = e.countryValue;
+    console.log(e.countryValue)
+    const countryValue = e.countryValue
     if (countryValue) {
       console.log("Navigating to /offer");
-      navigate(`/offer/${countryValue}`);
+      navigate(`/offer/continent/${countryValue}`)
     }
 
     // Puedes hacer más cosas aquí, como navegar a una página específica para ese país, etc.
-  };
+  }
   return (
-    <div className="App">
-      <WorldMap
-        color="blue"
-        size="xxl"
-        data={data}
-        onClickFunction={(e) => clickAction(e)}
-      />
-    </div>
-  );
+   
+  <div className="App">
+  <WorldMap
+    color="blue"
+    size="xxl"
+    data={data}
+    onClickFunction={(e) => clickAction(e)}
+
+    className="WorldMap"
+  />
+</div>
+
+  )
 }
-export default Map;
+export default Map

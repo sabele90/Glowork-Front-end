@@ -1,26 +1,44 @@
 import OfferCard from "../../components/OfferCard/OfferCard";
 import "./Offers.css";
 import { useEffect, useState } from "react";
-import { getOffers, getOffersByContinent } from "../../services/offer";
+import { getOffersByContinent, getOffersByCountry } from "../../services/offer";
 import React from "react";
 import { useParams } from "react-router-dom";
 
+
 export default function Offers() {
   const [offers, setOffers] = useState([]);
-  const { countryValue } = useParams();
-  console.log(countryValue);
+  const { countryId, continentValue } = useParams();
+  // COUNTRY NAME ES EL NOMBRE DEL PAIS TYPEOF STRING
+  // COUNTRY VALUE SE RECIBE CLICKANDO EN EL MAPA Y ES EL CÓDIGO 
+  // DEL CONTINENTE
+
   async function getAllOffers() {
-    const allOffers = await getOffersByContinent(countryValue);
-    setOffers(allOffers);
-  }
+
+    if (continentValue.length === 1) {
+      const allOffers = await getOffersByContinent(continentValue);
+      setOffers(allOffers);
+    } else {
+
+        const countryOffers = await getOffersByCountry(countryId);
+        setOffers(countryOffers);
+      }
+
+    }
+  
 
   useEffect(() => {
     getAllOffers();
   }, []);
 
-  function showAllOffers() {
-    return offers.map((offer, i) => <OfferCard key={i} offer={offer} />);
-  }
-
-  return showAllOffers();
+  return (
+    <div>
+      {offers.map((offer, i) => (
+        <OfferCard key={i} offer={offer} />
+      ))}
+    
+    </div>
+  );
 }
+
+

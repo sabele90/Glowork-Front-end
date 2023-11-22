@@ -1,0 +1,12 @@
+.App {
+    text-align: center;
+  }
+  
+  .App > div{
+    height: 94vh !important;
+  }
+  
+  rect{
+    height: 65px;
+  }
+  

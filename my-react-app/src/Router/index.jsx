@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/home_user",
-        element: <HomeUser />,
+        element: <HomeUser />,                                                   
         loader: () => {
           if (!localStorage.token) {
             return redirect("/");
@@ -43,7 +43,12 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/offer/:countryValue",
+        path: "/offer/continent/:continentValue",
+        element: <Offers />,
+      },
+
+      {
+        path: "/offer/country/:countryId",
         element: <Offers />,
       },
       {
