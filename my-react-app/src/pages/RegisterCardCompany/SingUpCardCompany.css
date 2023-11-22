@@ -1,0 +1,14 @@
+.imageCompany{
+    position: absolute;
+    top: 29rem;
+    left: 9rem;
+    width: 40rem;
+
+}
+.bodySignUp{
+
+    margin-top: 2rem;
+    background-image:url(../../assets/images/backgroundRegister.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

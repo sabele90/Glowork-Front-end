@@ -1,12 +1,12 @@
-import React from 'react'
-import "./SingUpCardCompany.css"
+import React from "react";
+import "./SingUpCardCompany.css";
 
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import { Card, CardContent, CardHeader } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const SingUpCardcompany = () => {
   const [formData, setFormData] = useState({
@@ -34,9 +34,15 @@ const SingUpCardcompany = () => {
   return (
     <>
       <div className="bodySignUp">
+        <div className="imageContainer">
+          <img
+            className="imageCompany"
+            src="/src/assets/images/companyRegister.png"
+          ></img>
+        </div>
+
         <div className="containerSignUp">
           <Card
-          
             sx={{
               width: "35%",
               padding: "5%", // Utilizando un porcentaje para el padding
@@ -51,22 +57,23 @@ const SingUpCardcompany = () => {
             }}
             raised={true}
           >
-          <CardHeader title="Sign up" sx={{ marginTop: "10px", position: "relative" }}>
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <img
-      src="/src/assets/images/profiile.png"
-      alt="Avatar"
-      style={{
-   
-        borderRadius: "50%",
-        width: "80px",
-        height: "80px",
-        top: "-40px",
-      }}
-    />
-  </div>
-</CardHeader>
-
+            <CardHeader
+              title="Sign up"
+              sx={{ marginTop: "10px", position: "relative" }}
+            >
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <img
+                  src="/src/assets/images/profiile.png"
+                  alt="Avatar"
+                  style={{
+                    borderRadius: "50%",
+                    width: "80px",
+                    height: "80px",
+                    top: "-40px",
+                  }}
+                />
+              </div>
+            </CardHeader>
 
             <CardContent>
               <form onSubmit={handleSubmit}>
@@ -79,7 +86,7 @@ const SingUpCardcompany = () => {
                   fullWidth
                   margin="normal"
                 />
-            
+
                 <TextField
                   label="Correo Electrónico"
                   type="email"
@@ -125,10 +132,12 @@ const SingUpCardcompany = () => {
                   fullWidth
                   margin="dense"
                 />
-              
-                <Link to="/login" style={{ textDecoration: 'none' }}>
-               <Button sx={{margin:"1rem"}}variant="contained">singup</Button>
-               </Link>
+
+                <Link to="/login" style={{ textDecoration: "none" }}>
+                  <Button sx={{ margin: "1rem" }} variant="contained">
+                    singup
+                  </Button>
+                </Link>
               </form>
             </CardContent>
           </Card>

@@ -44,7 +44,6 @@ export default function Header() {
               <img
                 className="logo"
                 src="/src/assets/images/logoHeader.png"
-                alt="logo"
                 width="100"
                 style={{ marginTop: "1px" }}
               ></img>

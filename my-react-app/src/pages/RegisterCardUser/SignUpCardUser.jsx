@@ -33,7 +33,13 @@ const SingUpCardUser = () => {
 
   return (
     <>
-      <div className="bodySignUp">
+      <div className="bodySignUpUser">
+        <div className="imageContainer">
+          <img
+            className="imageUser"
+            src="/src/assets/images/userRegister.png"
+          ></img>
+        </div>
         <div className="containerSignUp">
           <Card
             sx={{
@@ -52,17 +58,7 @@ const SingUpCardUser = () => {
             }}
             raised={true}
           >
-            <img
-              src="/src/assets/images/profiile.png"
-              alt="Avatar"
-              style={{
-                width: "10rem",
-                height: "10rem",
-                display: "flex",
-              }}
-            />
             <CardHeader title="Sign up"></CardHeader>
-
             <CardContent>
               <form onSubmit={handleSubmit}>
                 <TextField
