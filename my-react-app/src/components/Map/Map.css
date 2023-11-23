@@ -6,6 +6,16 @@
     height: 94vh !important;
   }
   
+  path {
+    stroke: none !important;
+    stroke-width: 0 !important;
+  }
+
+  path:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out; 
+  }
+
   rect{
     height: 65px;
   }
