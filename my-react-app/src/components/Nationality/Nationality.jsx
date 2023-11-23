@@ -10,7 +10,7 @@ export default function Nationality() {
       id="combo-box-demo"
       options={""}
       size="small"
-      sx={{ width: 300 }}
+      sx={{ width: 250 }}
       renderInput={(params) => <TextField {...params} label="Nationality" />}
     />
   );

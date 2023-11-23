@@ -1,0 +1,25 @@
+.headerUserProfile{
+    display: flex;
+    justify-content: start;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    height: 15rem;
+    width: 100%;
+    background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2);
+  }
+
+.photoHeaderProfile{
+   
+    position: absolute;
+    left: 7rem;
+    margin-top: -7rem;
+  width: 23rem;
+  height: 22rem;
+}
+
+
+.containerProfile{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}

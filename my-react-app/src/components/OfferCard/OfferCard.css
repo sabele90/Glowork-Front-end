@@ -1,0 +1,8 @@
+.offerCard{
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .offerCard:hover {
+    box-shadow: 0 0 15px rgba(0, 132, 255, 0.5);
+  }

@@ -56,6 +56,7 @@ export default function CountryList() {
           justifyContent: "center",
           alignContent: "center",
           width: 300,
+          background:"white"
         }}
         renderInput={(params) => (
           <TextField

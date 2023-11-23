@@ -1,0 +1,28 @@
+.OfferList{
+    margin: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 600px) {
+    .OfferList {
+      flex-direction: column;
+      align-items: center; /* Centra las tarjetas en dispositivos móviles */
+    }
+  }
+
+  .headerOffers{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    height: 15rem;
+    width: 100%;
+    background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2);
+  }
+
+ .photoHeader {
+  position:absolute;
+  left: 4rem;
+  top: 2.5rem;
+ }

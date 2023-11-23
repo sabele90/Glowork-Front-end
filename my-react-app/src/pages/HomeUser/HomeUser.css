@@ -1,0 +1,27 @@
+
+.photoHeaderUser{
+ 
+        position:absolute;
+        left: 12em;
+        top: 1rem;
+        width: 22rem;
+
+       
+}
+
+.headerOffersHomeUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    height: 15rem;
+    width: 100%;
+    background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2);
+  }
+
+  
+  .letterHomeUser {
+    position: absolute;
+    top: 10rem;
+  }

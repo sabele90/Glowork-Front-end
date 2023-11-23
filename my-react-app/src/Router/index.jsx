@@ -1,13 +1,13 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import Root from "../layouts";
 import LoginCard from "../pages/LoginCard/LoginCard";
-import SignUpCardUser from "../pages/RegisterCardUser/SignUpCardUser";
+import SignUpCardUser from "../pages/SignUpCardUser/SignUpCardUser";
 import Home from "../pages/Home/Home";
 import HomeUser from "../pages/HomeUser/HomeUser";
-import SingUpCardCompany from "../pages/RegisterCardCompany/SingUpCardCompany";
+import SingUpCardCompany from "../pages/SignUpCardCompany/SingUpCardCompany";
 import Offers from "../pages/Offers/Offers";
 import OfferSubscription from "../pages/OfferSubscription/OfferSubscription";
-
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/offer_subscrptions/:offer_id",
         element: <OfferSubscription />,
+      },
+      {
+        path: "/profile_user",
+        element: <UserProfile/>,
       },
     ],
   },

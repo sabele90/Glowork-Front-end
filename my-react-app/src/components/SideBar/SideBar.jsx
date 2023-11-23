@@ -13,6 +13,9 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import StarIcon from '@mui/icons-material/Star';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Favorite, Star } from "@mui/icons-material";
+import FavouriteIcon from "../FavouriteIcon/FavouriteIcon";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   const [open, setOpen] = useState(false); // State variable we will use to determine if the drawer is open or not.
@@ -37,35 +40,30 @@ function SideBar() {
       onKeyDown={toggleDrawer(false)}
     >
      
-      <List>
-        {["Profile","Inbox", "Favorites", "Reviews"].map((text, index) => (
+     <List>
+        {["Profile", "Inbox", "Favorites", "Reviews"].map((text) => (
+          <Link  key={text} to="/profile_user">
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? (
-                 <AccountCircleIcon/> 
-                
-          
-                ) : (
-                  <>
-                    {text === "Inbox" ? <MailIcon /> : null}
-                    {text === "Favorites" ? <StarIcon /> : null}
-                    {text === "Reviews" ? <MailIcon /> : null}
-                  </>
-              
-              
-              )}
-
-
+                {text === "Profile" ? (
+                  
+                  <AccountCircleIcon />
+                ) : text === "Inbox" ? (
+                  <MailIcon />
+                ) : text === "Favorites" ? (
+                  <Favorite />
+                ) : text === "Reviews" ? (
+                  <StarIcon />
+                ) : null}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
+          </Link>
         ))}
       </List>
-      
     </Box>
-    
   );
 
   return (

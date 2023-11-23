@@ -7,16 +7,29 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import FavouriteIcon from "../FavouriteIcon/FavouriteIcon";
 
 export default function OfferCard({ offer }) {
   return (
-    <Card sx={{ maxWidth: 345, margin: 20 }}>
+    <Card
+    className="offerCard"
+      sx={{
+        maxWidth: 345,
+        margin: 2,
+        display: "flex",
+        flexDirection: "column", // Por defecto, establece la dirección del eje principal a columna
+        flexWrap: "wrap", // Asegura que las tarjetas se envuelvan en una nueva línea
+        "@media (min-width: 600px)": {
+          flexDirection: "row", // Cambia a fila en pantallas más grandes (ajusta el valor según sea necesario)
+        },
+      }}
+    >
       <CardMedia
         component="img"
         style={{ objectFit: "contain", height: "200px" }}
         image={offer.company.profile_photo}
       />
-      <CardContent>
+      <CardContent sx={{display:'flex', flexDirection:'column'}}>
         <Typography gutterBottom variant="h5" component="div">
           {offer.title}
         </Typography>
@@ -24,10 +37,10 @@ export default function OfferCard({ offer }) {
           {offer.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Link to={`/offer_subscrptions/${offer.id}`} >
-          <Button size="small">Learn More</Button>
+      <CardActions sx={{ alignSelf: 'flex-end' }}>
+        <FavouriteIcon />
+        <Link to={`/offer_subscrptions/${offer.id}`}>
+          <Button size="small">MORE INFO</Button>
         </Link>
       </CardActions>
     </Card>

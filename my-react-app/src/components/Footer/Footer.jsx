@@ -46,23 +46,31 @@ function Footer() {
     return footerElements;
   }
 
+  //background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2)
   return (
     <footer className="footer">
-      <Box bgcolor="primary.main" color="white" padding={2}>
+      <Box
+        sx={{
+          background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
+          color: "white",
+          padding: 2,
+        }}>
         <Container>
           <Grid container spacing={0} justifyContent="space-evenly">
             {generateFooterElements()}
           </Grid>
-          <Divider bgcolor="primary.main" color="white"></Divider>
+          <Divider sx={{ backgroundColor: "white" }}></Divider>
         </Container>
       </Box>
       <Box
-        display={"flex"}
-        flexDirection={"column"}
-        alignItems={"center"}
-        py={2}
-        bgcolor="primary.main"
-        color={"white"}
+      display={"flex"}
+      flexDirection={"column"}
+      alignItems={"center"}
+      py={2}
+      sx={{
+        background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
+        color: "white",
+      }}
       >
         <Box>
           <IconButton sx={{ color: "white" }}>
