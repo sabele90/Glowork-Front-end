@@ -10,6 +10,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
+import HomeIcon from "@mui/icons-material/Home";
 import MailIcon from "@mui/icons-material/Mail";
 import StarIcon from '@mui/icons-material/Star';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -41,28 +42,30 @@ function SideBar() {
     >
      
      <List>
-        {["Profile", "Inbox", "Favorites", "Reviews"].map((text) => (
-          <Link  key={text} to="/profile_user">
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {text === "Profile" ? (
-                  
-                  <AccountCircleIcon />
-                ) : text === "Inbox" ? (
-                  <MailIcon />
-                ) : text === "Favorites" ? (
-                  <Favorite />
-                ) : text === "Reviews" ? (
-                  <StarIcon />
-                ) : null}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-          </Link>
-        ))}
-      </List>
+  {["Profile", "Inbox", "Favorites", "Reviews", "Home"].map((text) => (
+    <Link key={text} to={text === "Favorites" ? "/favorites" : text === "Home" ? "/home_user" : "/profile_user"}>
+      <ListItem key={text} disablePadding>
+        <ListItemButton>
+          <ListItemIcon>
+            {text === "Profile" ? (
+              <AccountCircleIcon />
+            ) : text === "Inbox" ? (
+              <MailIcon />
+            ) : text === "Favorites" ? (
+              <Favorite />
+            ) : text === "Reviews" ? (
+              <StarIcon />
+            ) : text === "Home" ? (
+              <HomeIcon /> 
+            ) : null}
+          </ListItemIcon>
+          <ListItemText primary={text} />
+        </ListItemButton>
+      </ListItem>
+    </Link>
+  ))}
+</List>
+
     </Box>
   );
 

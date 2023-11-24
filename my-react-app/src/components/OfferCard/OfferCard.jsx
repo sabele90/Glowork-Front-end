@@ -9,7 +9,12 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import FavouriteIcon from "../FavouriteIcon/FavouriteIcon";
 
-export default function OfferCard({ offer }) {
+export default function OfferCard({ offer ,onAddToFavorites }) {
+
+  const handleAddToFavorites = () => {
+    onAddToFavorites(offer);
+  }
+  console.log(offer)
   return (
     <Card
       className="offerCard"
@@ -38,7 +43,7 @@ export default function OfferCard({ offer }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ alignSelf: "flex-end" }}>
-        <FavouriteIcon />
+        <FavouriteIcon onAddToFavorites={handleAddToFavorites} offer={offer} />
         <Link to={`/offer_subscrptions/${offer.id}`}>
           <Button size="small">MORE INFO</Button>
         </Link>

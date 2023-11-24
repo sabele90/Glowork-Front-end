@@ -1,15 +1,37 @@
 import "./FavouriteIcon.css";
-import React from "react";
+import React, { useEffect } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Button } from "@mui/material";
+import { addToFavorites, deleteFromFavorites } from "../../services/user";
 
-export default function FavouriteIcon() {
+export default function FavouriteIcon({ onAddToFavorites ,offer}) {
+
   const [isFavorite, setIsFavorite] = React.useState(false);
 
   const toggleFavorite = () => {
-    setIsFavorite((prev) => !prev);
+    if (!isFavorite) {
+      setIsFavorite(true);
+      onAddToFavorites(offer); // Add offer to favorites
+    } else {
+      setIsFavorite(false);
+      deleteFromFavorites(offer); // Remove offer from favorites
+    }
   };
+  async function getFavorites() {
+    if (onclick) {
+      const addFavorite = await addToFavorites(offer_id);
+      setIsFavorite(addFavorite);
+    } else {
+      const deleteFavorite = await deleteFromFavorites(offer_id);
+      setIsFavorite(deleteFavorite);
+    }
+  }
+
+  useEffect(() => {
+    getFavorites();
+  }, []);
+
 
   return (
     <div>

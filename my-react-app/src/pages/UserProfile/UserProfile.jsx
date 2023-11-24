@@ -7,23 +7,27 @@ import {
 } from "@mui/material";
 import "./UserProfile.css";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getUserContactInfo } from "../../services/user";
-import { useParams } from "react-router-dom";
 
 export default function UserProfile() {
-  const { userId } = useParams();
   const [user, setUser] = useState({});
-  console.log(user);
+
+
   async function getUserInfo() {
-    const info = await getUserContactInfo(userId);
+    const info = await getUserContactInfo(localStorage.getItem('userId'));
 
     setUser(info);
-    console.log("User Info:", info);
+    /* console.log("User Info:", info); */
   }
+
+
   useEffect(() => {
     getUserInfo();
   }, []);
+
+
+ 
 
   return (
     <>
@@ -43,7 +47,8 @@ export default function UserProfile() {
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             borderRadius: "10px",
             display: "flex",
-            flexDirection: "column",
+            flexWrap:"wrap",
+            
             justifyContent: "center",
             textAlign: "center",
             alignItems: "center",
@@ -51,12 +56,17 @@ export default function UserProfile() {
           raised={true}
         >
           <CardContent>
-            <CardHeader title={`${user.name} ${user.surname}`} />
-            <Typography variant="body2">PROFILE</Typography>
-            <Typography variant="body1">{""}</Typography>
-            <Typography variant="body1">{""}</Typography>
-            <Typography variant="body1">{""}</Typography>
-            <Typography variant="body1-"> {""}</Typography>
+            <CardHeader title= {`${user.name} ${user.surname}`}  />
+        
+            <Typography variant="body1">{user.about}</Typography>
+            <Typography variant="body1">{user.interests}</Typography>
+            <Typography variant="body1">
+    {user.contact_info && user.contact_info.date_of_birth}
+  </Typography>
+  <Typography variant="body1">
+    {user.contact_info && user.contact_info.nationality && user.contact_info.nationality.nationality}
+  </Typography>
+
           </CardContent>
         </Card>
       </div>

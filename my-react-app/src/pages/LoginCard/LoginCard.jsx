@@ -32,6 +32,8 @@ export default function LoginCard() {
     const response = await login({ email, password });
     localStorage.setItem("token", response.token);
     localStorage.setItem("rol", response.role);
+    localStorage.setItem("userId", response.userId);
+
     setLogin(true);
     navigate("/home_user");
   }

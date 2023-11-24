@@ -2,22 +2,21 @@
     display: flex;
     flex-wrap: wrap;
     margin: 3rem;
-
-
- 
 }
 
-.containerOffer{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    margin-right: 5rem;
-}
 
-.photo{
+
+.photoSubscription{
     transition: transform 0.3s ease-in-out; 
 }
 
-.photo:hover {
+.photoSubscription:hover {
     transform: scale(1.1); /* Puedes ajustar el valor según tus preferencias para ampliar la imagen al pasar el ratón por encima */
   }
+
+
+.containerOfferSubscription{
+    width: 90%;
+    max-width: 90%;
+
+}
