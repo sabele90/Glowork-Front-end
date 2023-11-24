@@ -12,7 +12,7 @@ import FavouriteIcon from "../FavouriteIcon/FavouriteIcon";
 export default function OfferCard({ offer }) {
   return (
     <Card
-    className="offerCard"
+      className="offerCard"
       sx={{
         maxWidth: 345,
         margin: 2,
@@ -29,7 +29,7 @@ export default function OfferCard({ offer }) {
         style={{ objectFit: "contain", height: "200px" }}
         image={offer.company.profile_photo}
       />
-      <CardContent sx={{display:'flex', flexDirection:'column'}}>
+      <CardContent sx={{ display: "flex", flexDirection: "column" }}>
         <Typography gutterBottom variant="h5" component="div">
           {offer.title}
         </Typography>
@@ -37,7 +37,7 @@ export default function OfferCard({ offer }) {
           {offer.description}
         </Typography>
       </CardContent>
-      <CardActions sx={{ alignSelf: 'flex-end' }}>
+      <CardActions sx={{ alignSelf: "flex-end" }}>
         <FavouriteIcon />
         <Link to={`/offer_subscrptions/${offer.id}`}>
           <Button size="small">MORE INFO</Button>
