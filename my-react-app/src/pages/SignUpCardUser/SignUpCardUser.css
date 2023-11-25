@@ -6,6 +6,8 @@
     background-size: cover; /* Ajusta la propiedad cover para cubrir completamente el fondo */
     background-repeat: no-repeat;
     height: 100vh; /* Establece la altura al 100% de la ventana */
+    width: 100vh;
+    max-width: 100vh;
   }
   
   .containerSignUpUser {

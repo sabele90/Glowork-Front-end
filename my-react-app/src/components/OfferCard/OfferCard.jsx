@@ -1,5 +1,5 @@
 import "./OfferCard.css";
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,12 +9,14 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import FavouriteIcon from "../FavouriteIcon/FavouriteIcon";
 
-export default function OfferCard({ offer ,onAddToFavorites }) {
+export default function OfferCard({ offer, onToggleFavorite }) {
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleAddToFavorites = () => {
-    onAddToFavorites(offer);
-  }
-  console.log(offer)
+  const handleToggleFavorite = (offer) => {
+    setIsFavorite((prev) => !prev);
+    onToggleFavorite(offer);
+  };
+
   return (
     <Card
       className="offerCard"
@@ -43,7 +45,12 @@ export default function OfferCard({ offer ,onAddToFavorites }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ alignSelf: "flex-end" }}>
-        <FavouriteIcon onAddToFavorites={handleAddToFavorites} offer={offer} />
+        <FavouriteIcon
+          isFavorite={isFavorite}
+          onToggleFavorite={(e) => handleToggleFavorite(offer)}
+          offer={offer.id}
+        />
+
         <Link to={`/offer_subscrptions/${offer.id}`}>
           <Button size="small">MORE INFO</Button>
         </Link>

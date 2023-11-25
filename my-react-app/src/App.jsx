@@ -1,32 +1,27 @@
 //app.jsx
 
-import { RouterProvider } from 'react-router-dom'
-import ButtonLoginHeader from './components/ButtonLoginHeader/ButtonLoginHeader'
-import './App.css'
-import router from './Router'
-import { useState } from 'react'
-import { LoginContext } from './Context/Login'
+import { RouterProvider } from "react-router-dom";
 
-
+import "./App.css";
+import router from "./Router";
+import { useState } from "react";
+import { LoginContext } from "./Context/Login";
 
 function App() {
-
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(true);
+  const [favorites, setFavorites] = useState([]);
   const obj = {
     login,
-    setLogin
-  }
-
+    setLogin,
+    favorites,
+    setFavorites,
+  };
 
   return (
-    <LoginContext.Provider value = {obj}>
-    <RouterProvider router={router} />
-  
-    {/* <ButtonLoginHeader /> */}
-
+    <LoginContext.Provider value={obj}>
+      <RouterProvider router={router} />
     </LoginContext.Provider>
-  )
+  );
 }
 
-
-export default App
+export default App;

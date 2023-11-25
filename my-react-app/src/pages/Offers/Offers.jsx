@@ -15,13 +15,25 @@ export default function Offers() {
   // CONTINENT VALUE SE RECIBE CLICKANDO EN EL MAPA Y ES EL CÓDIGO
   // DEL CONTINENTE
 
-  const handleAddToFavorites = (offer) => {
-    // Agregar lógica para evitar agregar la misma oferta varias veces
-    if (!favoriteOffers.some((favOffer) => favOffer.id === offer.id)) {
-      setFavoriteOffers((prevFavorites) => [...prevFavorites, offer]);
+  async function handleAddToFavorites(offer) {
+    console.log(offer);
+    // Verificar si la oferta ya está en favoritos, me compara los id de la offer
+    const isOfferInFavorites = favoriteOffers.filter(
+      (favOffer) => favOffer.id === offer.offer_id
+    );
+    console.log(favoriteOffers);
+    console.log(isOfferInFavorites);
+    // SI NO ESTA,  HACEMOS UN SET PARA CAMBIAR EL ESTADO, Y ME LA AGREGA
+    // ACEPTA UN NUEVO VALOR DE ESTADO QUE RECIBE EL ESTADO ANTERIOR Y ME DEVUELVE EL NUEVO.
+    //prevFavorites es el estado anterior, que es la lista actual de ofertas favoritas.
+    //(...prevFavorites, { offer }) crea un nuevo array que incluye todas
+    // las ofertas anteriores (...prevFavorites) y agrega la nueva oferta { offer } al final del array.
+    //Luego, ese nuevo array se convierte en el nuevo estado de favoriteOffers,
+    //y React se encarga de actualizar el componente para reflejar el cambio en el estado
+    if (!isOfferInFavorites) {
+      setFavoriteOffers((prevFavorites) => [...prevFavorites, { offer }]);
     }
-  };
-
+  }
 
   async function getAllOffers() {
     if (location.pathname.includes("continent")) {
@@ -40,17 +52,20 @@ export default function Offers() {
   return (
     <>
       <header className="headerOffers">
-      <img
+        <img
           className="photoHeader"
           src="/src/assets/images/headerOffers.png"
-         
         ></img>
         <CountryList />
       </header>
 
       <div className="OfferList">
         {offers.map((offer, i) => (
-          <OfferCard key={i} offer={offer} onAddToFavorites={() => handleAddToFavorites(offer)} />
+          <OfferCard
+            key={i}
+            offer={offer}
+            onAddToFavorites={() => handleAddToFavorites(offer)}
+          />
         ))}
       </div>
     </>

@@ -1,41 +1,36 @@
 import "./FavouriteIcon.css";
-import React, { useEffect } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Button } from "@mui/material";
 import { addToFavorites, deleteFromFavorites } from "../../services/user";
 
-export default function FavouriteIcon({ onAddToFavorites ,offer}) {
+export default function FavouriteIcon({ isFavorite, onToggleFavorite, offer }) {
+  const { favorites, setFavorites } = useLoginContext();
 
-  const [isFavorite, setIsFavorite] = React.useState(false);
-
-  const toggleFavorite = () => {
-    if (!isFavorite) {
-      setIsFavorite(true);
-      onAddToFavorites(offer); // Add offer to favorites
-    } else {
-      setIsFavorite(false);
-      deleteFromFavorites(offer); // Remove offer from favorites
+  const handleClick = async () => {
+    try {
+      // Lógica para agregar o quitar favoritos
+      if (isFavorite) {
+        // Si es un favorito, quitarlo de la lista
+        setFavorites((prevFavorites) =>
+          prevFavorites.filter((fav) => fav.id !== offer.id)
+        );
+        await deleteFromFavorites(offer);
+      } else {
+        // Si no es un favorito, agregarlo a la lista
+        setFavorites((prevFavorites) => [...prevFavorites, offer]);
+        await addToFavorites(offer);
+      }
+    } catch (error) {
+      console.error("Error toggling favorite:", error);
     }
   };
-  async function getFavorites() {
-    if (onclick) {
-      const addFavorite = await addToFavorites(offer_id);
-      setIsFavorite(addFavorite);
-    } else {
-      const deleteFavorite = await deleteFromFavorites(offer_id);
-      setIsFavorite(deleteFavorite);
-    }
-  }
-
-  useEffect(() => {
-    getFavorites();
-  }, []);
-
 
   return (
+    //traerme el contexto ,  comprobar si esta o no
+
     <div>
-      <Button onClick={toggleFavorite}>
+      <Button onClick={handleClick}>
         {isFavorite ? (
           <FavoriteIcon style={{ color: "red" }} />
         ) : (

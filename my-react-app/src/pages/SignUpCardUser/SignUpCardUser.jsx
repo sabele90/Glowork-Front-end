@@ -1,9 +1,7 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import "./SignUpCardUser.css";
-import { Box, Card, CardContent, CardHeader, Grid } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Card, CardContent, CardHeader } from "@mui/material";
 import DateOfBirth from "../../components/DateOfBirth/DateOfBirth";
 import Nationality from "../../components/Nationality/Nationality";
 import ButtonLogin from "../../components/ButtonLogin/ButtonLogin";
@@ -47,7 +45,6 @@ const SignUpCardUser = () => {
         />
       </Box>
 
-      {/* Contenedor de registro */}
       <Box className="containerSignUpUser">
         <Card
           sx={{
@@ -154,8 +151,6 @@ const SignUpCardUser = () => {
           </CardContent>
         </Card>
       </Box>
-
-      {/* Imagen a la derecha */}
     </Box>
   );
 };
