@@ -4,9 +4,10 @@ import CountryList from "../../components/CountryList/CountryList";
 import ReactPlayer from "react-player";
 import LetterTransition from "../../components/LetterTransition/LetterTransition";
 import { LoginContext } from "../../Context/Login";
+import { useContext } from "react";
 
 function HomeUser() {
-  const { favorites } = useLoginContext();
+  const { favorites } = useContext(LoginContext);
   //peticion al back todos los favoritos
   //guardar en contexto
   //traerme el contexto del login

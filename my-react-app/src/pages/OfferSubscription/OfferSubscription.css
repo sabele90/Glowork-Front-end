@@ -20,3 +20,8 @@
     max-width: 90%;
 
 }
+
+.leaflet-container{
+    height: 50%;
+    width: 50%;
+}

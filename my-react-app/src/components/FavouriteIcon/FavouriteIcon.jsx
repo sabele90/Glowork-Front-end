@@ -3,23 +3,36 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Button } from "@mui/material";
 import { addToFavorites, deleteFromFavorites } from "../../services/user";
+import { useContext, useEffect, useState } from "react";
+import { LoginContext } from "../../Context/Login";
 
-export default function FavouriteIcon({ isFavorite, onToggleFavorite, offer }) {
-  const { favorites, setFavorites } = useLoginContext();
+export default function FavouriteIcon({ offer }) {
+  const { favorites, setFavorites } = useContext(LoginContext);
+  const [isFavorite, setIsFavorite] = useState(null);
+
+  useEffect(() => {
+    setIsFavorite(isFavoriteOffer());
+  }, [favorites, isFavorite]);
+
+  const isFavoriteOffer = () => {
+    return favorites.some((favorite) => favorite.id === offer.id);
+  };
 
   const handleClick = async () => {
     try {
       // Lógica para agregar o quitar favoritos
-      if (isFavorite) {
+      const isInfavorites = isFavoriteOffer();
+
+      if (isInfavorites) {
         // Si es un favorito, quitarlo de la lista
-        setFavorites((prevFavorites) =>
-          prevFavorites.filter((fav) => fav.id !== offer.id)
-        );
-        await deleteFromFavorites(offer);
+        const newFavorites = favorites.filter((favorite) => favorite != offer);
+        setFavorites(newFavorites);
+        await deleteFromFavorites(offer.id);
+        setIsFavorite(false);
       } else {
-        // Si no es un favorito, agregarlo a la lista
         setFavorites((prevFavorites) => [...prevFavorites, offer]);
-        await addToFavorites(offer);
+        await addToFavorites(offer.id);
+        setIsFavorite(true);
       }
     } catch (error) {
       console.error("Error toggling favorite:", error);

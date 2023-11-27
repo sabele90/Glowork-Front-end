@@ -1,11 +1,8 @@
-//app.jsx
-
-import { RouterProvider } from "react-router-dom";
-
 import "./App.css";
-import router from "./Router";
+import { RouterProvider } from "react-router-dom";
 import { useState } from "react";
 import { LoginContext } from "./Context/Login";
+import router from "./Router";
 
 function App() {
   const [login, setLogin] = useState(true);
@@ -15,6 +12,7 @@ function App() {
     setLogin,
     favorites,
     setFavorites,
+    userId: localStorage.getItem("userId"),
   };
 
   return (
