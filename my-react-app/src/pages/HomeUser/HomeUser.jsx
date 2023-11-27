@@ -1,7 +1,6 @@
 import "./HomeUser.css";
 import Map from "../../components/Map/Map";
 import CountryList from "../../components/CountryList/CountryList";
-import ReactPlayer from "react-player";
 import LetterTransition from "../../components/LetterTransition/LetterTransition";
 import { LoginContext } from "../../Context/Login";
 import { useContext } from "react";

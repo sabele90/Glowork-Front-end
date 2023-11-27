@@ -1,23 +1,35 @@
 import "./UserProfile.css";
-import { Card, CardContent, CardHeader, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUserContactInfo } from "../../services/user";
 import UploadImage from "../../components/UploadImage/UploadImage";
+import { getOfferSetUser } from "../../services/offer";
 
 export default function UserProfile() {
   const [user, setUser] = useState({});
+  const [offerData, setOfferData] = useState(null);
+
 
   async function getUserInfo() {
     const info = await getUserContactInfo(localStorage.getItem("userId"));
 
     setUser(info);
-    /* console.log("User Info:", info); */
-  }
 
+  }
+  async function getSubscriptionToProfile() {
+    const data = await getOfferSetUser("offerId");
+    setOfferData(data);
+  }
   useEffect(() => {
     getUserInfo();
+    getSubscriptionToProfile()
   }, []);
-  // https://images.hola.com/imagenes/estar-bien/20221018219233/buenas-personas-caracteristicas/1-153-242/getty-chica-feliz-t.jpg?tx=w_1200
+  
+
+  const handleSubcriptions = () => {
+    getSubscriptionToProfile();
+  };
+
   return (
     <>
       <header className="headerUserProfile">
@@ -73,6 +85,9 @@ export default function UserProfile() {
                 user.contact_info.nationality &&
                 user.contact_info.nationality.nationality}
             </Typography>
+
+            <Box subscriptions ={handleSubcriptions}></Box>
+
           </CardContent>
         </Card>
       </div>

@@ -1,10 +1,18 @@
 import api from "./index";
 
+export async function signUpUser(dataUser) {
+  console.log(dataUser)
+  const { data } = await api.post("/auth/signupUser", dataUser);
+  return data.user;
+
+}
+
 export async function getUserContactInfo(userId) {
   const { data } = await api.get(`/user/${userId}/contactInfo`);
 
   return data.user;
 }
+
 
 export async function getMyFavorites() {
   const { data } = await api.get("/favorites/favorites", {

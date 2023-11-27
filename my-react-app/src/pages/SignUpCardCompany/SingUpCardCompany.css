@@ -1,14 +1,61 @@
-.imageCompany{
-    position: absolute;
-    top: 29rem;
-    left: 9rem;
-    width: 40rem;
-
-}
-.bodySignUp{
-
-    margin-top: 2rem;
-    background-image:url(../../assets/images/backgroundRegister.png);
-    background-size: cover;
+.bodySignUpCompany {
+   position: relative;
+    display: flex;
+    margin-top: 1rem;
+    background-image: url(../../assets/images/backgroundRegister.png);
+    background-size: contain;
     background-repeat: no-repeat;
-}
+    width: 100vw;
+    max-width: 1720px; /* Ajusta según tus necesidades */
+    height: 800px;
+    
+  }
+
+.containerSignUpCompany {
+
+   margin: 20px;
+   display:flex ;
+   justify-content: end;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+  }
+  
+
+
+.imageCompany {
+    position: absolute;
+    bottom: 0;
+    left:  15rem;
+    width: 40rem;
+  }
+  
+  @media (max-width: 768px) {
+
+    .bodySignUpCompany {
+
+          display: flex;
+          margin-top: 1rem;
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 100vw;
+          max-width: 1720px; /* Ajusta según tus necesidades */
+          height: 800px;
+          
+        }
+    .containerSignUpCompany {
+
+      justify-content: center;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      margin: 2rem; /* Ajusta según tus necesidades */
+    }
+  
+    .imageCompany {
+      display: none; /* Oculta la imagen en pantallas pequeñas */
+    }
+  }
+  

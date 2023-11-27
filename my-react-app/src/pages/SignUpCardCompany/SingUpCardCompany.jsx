@@ -3,10 +3,9 @@ import "./SingUpCardCompany.css";
 
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-
 import { Card, CardContent, CardHeader } from "@mui/material";
-import { Link } from "react-router-dom";
+import ButtonLogin from "../../components/ButtonLogin/ButtonLogin"
+
 
 const SingUpCardcompany = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +13,7 @@ const SingUpCardcompany = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    birthdate: "",
+  
   });
 
   const handleChange = (e) => {
@@ -32,8 +31,9 @@ const SingUpCardcompany = () => {
   };
 
   return (
-    <>
-      <div className="bodySignUp">
+    
+      <div className="bodySignUpCompany">
+
         <div className="imageContainer">
           <img
             className="imageCompany"
@@ -41,12 +41,14 @@ const SingUpCardcompany = () => {
           ></img>
         </div>
 
-        <div className="containerSignUp">
+        <div className="containerSignUpCompany">
           <Card
             sx={{
-              width: "35%",
+              right:"0px",
+              width: "20%",
+              height:"60%",
               padding: "5%", // Utilizando un porcentaje para el padding
-              margin: "5%", // Utilizando un porcentaje para el margin
+              margin: "1%", // Utilizando un porcentaje para el margin
               maxWidth: "70%", // Utilizando un porcentaje para el maxWidth
               backgroundColor: "rgba(255, 255, 255, 0.5)",
               borderRadius: "10px",
@@ -132,18 +134,16 @@ const SingUpCardcompany = () => {
                   fullWidth
                   margin="dense"
                 />
-
-                <Link to="/login" style={{ textDecoration: "none" }}>
-                  <Button sx={{ margin: "1rem" }} variant="contained">
-                    singup
-                  </Button>
-                </Link>
               </form>
+              <ButtonLogin />
+
             </CardContent>
+        
           </Card>
+   
         </div>
       </div>
-    </>
+    
   );
 };
 

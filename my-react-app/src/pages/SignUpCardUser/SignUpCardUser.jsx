@@ -1,157 +1,147 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import "./SignUpCardUser.css";
-import { Box, Card, CardContent, CardHeader } from "@mui/material";
-import DateOfBirth from "../../components/DateOfBirth/DateOfBirth";
-import Nationality from "../../components/Nationality/Nationality";
-import ButtonLogin from "../../components/ButtonLogin/ButtonLogin";
+import { Button, Card, CardContent, CardHeader } from "@mui/material";
+import { signUpUser } from "../../services/user";
+import { useNavigate } from "react-router-dom";
 
 const SignUpCardUser = () => {
+
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    username: "",
+
+    name: "",
+    surname:"",
     email: "",
     password: "",
-    confirmPassword: "",
-    birthdate: "",
+    about: "", 
+    interests: "", 
+ 
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Hola Signup")
+    console.log(formData)
+    try {
+      // Enviar la solicitud de registro con los datos del formulario
+      await signUpUser(formData);
+      console.log("Usuario registrado exitosamente");
+      navigate("/login")
+    } catch (error) {
+      console.error("Error al registrar usuario:", error);
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes realizar acciones como enviar los datos al servidor
-    console.log("Form submitted:", formData);
-  };
 
   return (
-    <Box
-      className="bodySignUpUser"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="100vh"
-    >
-      <Box className="imageContainer" style={{ marginTop: "10rem" }}>
-        <img
-          className="imageUser"
-          src="/src/assets/images/userRegister.png"
-          alt="User Registration"
-        />
-      </Box>
+    <div className="bodySignUpUser">
 
-      <Box className="containerSignUpUser">
+      <div className="imageContainer">
+          <img
+            className="imageSingUpUser"
+            src="/src/assets/images/userRegister.png"
+          ></img>
+        </div>
+
+      <div className="containerSignUpUser">
         <Card
           sx={{
-            width: "30rem",
-            padding: "5%",
+            right:"0px",
+            width: "20%",
+            height:"60%",
+            padding: "5%", // Utilizando un porcentaje para el padding
+            margin: "1%", // Utilizando un porcentaje para el margin
+            maxWidth: "70%", // Utilizando un porcentaje para el maxWidth
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             borderRadius: "10px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
-            alignItems: "center",
           }}
           raised={true}
         >
           <CardHeader title="Sign up"></CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit}>
+            <form>
               <TextField
-                label="Name"
-                type="text"
-                name="name"
-                value={formData.username}
-                onChange={handleChange}
-                fullWidth
-                margin="normal"
-                size="small"
-                sx={{ width: "70%" }} // Ajusta el ancho y el margen según tus preferencias
+                 label="Name"
+                 type="text"
+                 name="name"
+                 value={formData.name}
+                 onChange={(e)=>{setFormData({...formData, name: e.target.value})}}
+                 fullWidth
+                 margin="normal"
+                 size="small"
               />
 
               <TextField
                 label="Surname"
                 type="text"
                 name="surname"
-                value={formData.username}
-                onChange={handleChange}
+                value={formData.surname}
+                onChange={(e)=>{setFormData({...formData, surname: e.target.value})}}
                 fullWidth
                 margin="normal"
                 size="small"
-                sx={{ width: "70%" }}
               />
               <TextField
                 label="Correo Electrónico"
                 type="email"
                 name="email"
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(e)=>{setFormData({...formData, email: e.target.value})}}
                 fullWidth
                 margin="normal"
                 size="small"
-                sx={{ width: "70%" }}
+ 
               />
               <TextField
                 label="Contraseña"
                 type="password"
                 name="password"
                 value={formData.password}
-                onChange={handleChange}
+                onChange={(e)=>{setFormData({...formData, password: e.target.value})}}
                 fullWidth
                 margin="normal"
                 size="small"
-                sx={{ width: "70%" }}
+       
               />
-              <TextField
-                label="Confirmar Contraseña"
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                fullWidth
-                margin="normal"
-                size="small"
-                sx={{ width: "70%" }}
-              />
+              
               <TextField
                 label="About you"
                 type="about"
                 name="about you"
-                value={formData.confirmPassword}
-                onChange={handleChange}
+                value={formData.about}
+                onChange={(e)=>{setFormData({...formData, about: e.target.value})}}
                 fullWidth
                 margin="normal"
                 size="large"
-                sx={{ width: "70%" }}
+     
               />
               <TextField
                 label="Interest"
                 type="interest"
-                name="interest"
-                value={formData.confirmPassword}
-                onChange={handleChange}
+                name="interests"
+                value={formData.interest}
+                onChange={(e)=>{setFormData({...formData, interests: e.target.value})}}
                 fullWidth
                 margin="normal"
                 size="large"
-                sx={{ width: "70%" }}
+        
               />
 
-              <DateOfBirth />
+              <Button sx={{ margin: "1rem" }} variant="contained" onClick={handleSubmit}>
+                
+                
+                Signup</Button>
 
-              <Nationality />
-
-              <ButtonLogin />
             </form>
           </CardContent>
         </Card>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 export default SignUpCardUser;

@@ -1,5 +1,10 @@
 import api from "./index";
 
+export async function getOneOffer(offerId) {
+  const { data } = await api.get(`offer/${offerId}`);
+  return data;
+}
+
 export async function getOffers() {
   const { data } = await api.get("/offer");
   return data;
@@ -21,7 +26,11 @@ export async function getOffersByCountry(countryId) {
   return dataFilterd;
 }
 
-export async function getOneOffer(offerId) {
-  const { data } = await api.get(`offer/${offerId}`);
-  return data;
+export async function getOfferSetUser(offerId){
+  const { data } = await api.get(`offer/offerSetUser/${offerId}`, {
+    headers: { authorization: localStorage.token }
+  })
+  return data
 }
+
+

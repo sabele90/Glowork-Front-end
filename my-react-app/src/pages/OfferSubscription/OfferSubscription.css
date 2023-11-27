@@ -1,27 +1,42 @@
+.containerGeolocation{
+    margin: 50px;
+    z-index: 1;
+}
+
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
     margin: 3rem;
 }
 
-
-
 .photoSubscription{
     transition: transform 0.3s ease-in-out; 
+ 
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .photoSubscription:hover {
-    transform: scale(1.1); /* Puedes ajustar el valor según tus preferencias para ampliar la imagen al pasar el ratón por encima */
+    transform: scale(2.3); 
+    z-index: 2;/* Puedes ajustar el valor según tus preferencias para ampliar la imagen al pasar el ratón por encima */
   }
 
 
 .containerOfferSubscription{
-    width: 90%;
-    max-width: 90%;
-
+    position: relative;
+    display: flex;
+    margin-top: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100vw;
+    max-width: 1720px; /* Ajusta según tus necesidades */
+    height: 1000px;
 }
 
 .leaflet-container{
     height: 50%;
     width: 50%;
 }
+
