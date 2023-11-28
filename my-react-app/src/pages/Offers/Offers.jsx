@@ -53,7 +53,7 @@ export default function Offers() {
     <>
       <header className="headerOffers">
         <img
-          className="photoHeader"
+          className="photoHeaderOffer"
           src="/src/assets/images/headerOffers.png"
         ></img>
         <CountryList />

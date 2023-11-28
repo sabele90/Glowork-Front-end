@@ -13,7 +13,7 @@ function HomeUser() {
 
   return (
     <>
-      <header className="headerOffersHomeUser">
+      <div className="headerOffersHomeUser">
         <img
           className="photoHeaderUser"
           src="/src/assets/images/headerHomeUser.png"
@@ -23,9 +23,15 @@ function HomeUser() {
           <LetterTransition />
         </div>
 
-        <CountryList />
-      </header>
-      <Map />;
+        <div className="filterCountry">
+          <CountryList />
+        </div>
+      </div>
+      <div className="bodyHomeUser">
+        <Map />
+        <div className="containerRight"></div>
+        <div className="containerLeft"></div>
+      </div>
     </>
   );
 }

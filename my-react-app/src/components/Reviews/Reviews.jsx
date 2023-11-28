@@ -26,28 +26,49 @@ export default function Reviews() {
   {
     return review.map((review, i) => {
       return (
-        <Card key={i} sx={{ display:"flex", margin:2,maxWidth: 300 ,height: "100%"}} className="allreviews">
+        <Card
+          className="allReviews"
+          key={i}
+          sx={{
+            display: "flex",
+            margin: 2,
+            maxWidth: 300,
+            height: "100%",
+          }}
+        >
           <CardActionArea>
             <CardMedia
-
               component="img"
               height="150"
               image={review.profile_photo}
               alt="green iguana"
             />
-            <CardContent sx={{ height: 200, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <Typography gutterBottom variant="h5" component="div">
-            
-              </Typography>
+            <CardContent
+              sx={{
+                height: 200,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+              ></Typography>
               <Typography variant="body2" color="text.secondary">
                 {review.comment}
               </Typography>
             </CardContent>
-           
-            <Stack spacing={1} direction="row" justifyContent="space-between" margin={2}>
-              <Rating   name="size-large" defaultValue={5} size="large" />
+
+            <Stack
+              spacing={1}
+              direction="row"
+              justifyContent="space-between"
+              margin={2}
+            >
+              <Rating name="size-large" defaultValue={5} size="large" />
             </Stack>
-        
           </CardActionArea>
         </Card>
       );
