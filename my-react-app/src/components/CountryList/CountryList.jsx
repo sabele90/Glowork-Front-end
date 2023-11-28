@@ -49,14 +49,14 @@ export default function CountryList() {
         onChange={(e) => clickAction(e)}
         disablePortal
         options={countryList}
+        size="small"
         sx={{
-          margin: 5,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignContent: "center",
           width: 300,
-          background:"white"
+          background: "white",
         }}
         renderInput={(params) => (
           <TextField

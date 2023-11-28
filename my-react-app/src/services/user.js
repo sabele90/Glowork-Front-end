@@ -1,10 +1,9 @@
 import api from "./index";
 
 export async function signUpUser(dataUser) {
-  console.log(dataUser)
+  console.log(dataUser);
   const { data } = await api.post("/auth/signupUser", dataUser);
   return data.user;
-
 }
 
 export async function getUserContactInfo(userId) {
@@ -13,11 +12,8 @@ export async function getUserContactInfo(userId) {
   return data.user;
 }
 
-
-export async function getMyFavorites() {
-  const { data } = await api.get("/favorites/favorites", {
-    headers: { authorization: localStorage.token },
-  });
+export async function getUserFavorites(userId) {
+  const { data } = await api.get(`offer/user/${userId}/favorites`);
   console.log(data);
   return data;
 }

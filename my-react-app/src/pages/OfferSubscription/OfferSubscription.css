@@ -1,8 +1,7 @@
-.containerGeolocation{
-    margin: 50px;
-    z-index: 1;
+/* Estilos para pantallas grandes */
+.containerGeolocation {
+    margin: 2rem;
 }
-
 
 .gallery {
     display: flex;
@@ -10,33 +9,55 @@
     margin: 3rem;
 }
 
-.photoSubscription{
-    transition: transform 0.3s ease-in-out; 
- 
+.photoSubscription {
+    transition: transform 0.3s ease-in-out;
     top: 0;
     left: 0;
     z-index: 1;
 }
 
 .photoSubscription:hover {
-    transform: scale(2.3); 
-    z-index: 2;/* Puedes ajustar el valor según tus preferencias para ampliar la imagen al pasar el ratón por encima */
-  }
+    transform: scale(2.3);
+    z-index: 2;
+}
 
-
-.containerOfferSubscription{
+.containerOfferSubscription {
     position: relative;
     display: flex;
     margin-top: 1rem;
     background-size: contain;
     background-repeat: no-repeat;
     width: 100vw;
-    max-width: 1720px; /* Ajusta según tus necesidades */
+    max-width: 100vw;
     height: 1000px;
 }
 
-.leaflet-container{
-    height: 50%;
-    width: 50%;
+.leaflet-container {
+    height: 10rem;
+    width: 10rem;
 }
 
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+    .containerGeolocation {
+        margin: 2rem;
+    }
+
+    .gallery {
+        margin: 1rem;
+    }
+
+    .photoSubscription {
+        transform: scale(1);
+    }
+
+    .containerOfferSubscription {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .leaflet-container {
+        height: 100%;
+        width: 100%;
+    }
+}

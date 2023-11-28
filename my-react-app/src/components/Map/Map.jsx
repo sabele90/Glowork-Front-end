@@ -226,7 +226,7 @@ function Map() {
     <div className="App">
       <WorldMap
         color="blue"
-        size="xxl"
+        size="xl"
         data={data}
         onClickFunction={(e) => clickAction(e)}
         className="WorldMap"

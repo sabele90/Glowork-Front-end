@@ -26,11 +26,9 @@ export async function getOffersByCountry(countryId) {
   return dataFilterd;
 }
 
-export async function getOfferSetUser(offerId){
+export async function getOfferSetUser(offerId) {
   const { data } = await api.get(`offer/offerSetUser/${offerId}`, {
-    headers: { authorization: localStorage.token }
-  })
-  return data
+    headers: { authorization: localStorage.token },
+  });
+  return data;
 }
-
-
