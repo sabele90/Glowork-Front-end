@@ -1,18 +1,54 @@
 
 
   .homeContainer {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+   position: relative; 
 }
 
 .video-background {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
+
+position: absolute;
+
+z-index: -1;
+top: -8rem;
+
 }
 
-.video {
-    margin: 0;
-    width: 100%;
-    height: auto;
-    z-index: -1;
+
+
+.reviews{
+  background: linear-gradient(to bottom, #e2d7d700, #64b4f6, #1976d2), linear-gradient(to top, transparent,rgba(0, 0, 0, 0));
+  display: flex;
+  z-index: -1;
+  justify-content: space-evenly;
+  position: static;
+  margin-top: 600px;
+  width: 100%;
+  
 }
+
+  
+  
+  @media screen and (max-width: 700px) {
+    .homeContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+    
+    }
+  
+    .video-background {
+      display: none;
+    }
+  
+    .reviews {
+ 
+      margin-top: 0;
+      flex-direction: column; /* Asegura que en dispositivos móviles sea columna */
+
+    }
+  }
+  

@@ -51,6 +51,7 @@ function Footer() {
     <footer className="footer">
       <Box
         sx={{
+      
           background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
           color: "white",
           padding: 2,

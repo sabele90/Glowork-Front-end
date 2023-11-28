@@ -4,31 +4,24 @@ import { useEffect, useState } from "react";
 import { getUserContactInfo } from "../../services/user";
 import UploadImage from "../../components/UploadImage/UploadImage";
 import { getOfferSetUser } from "../../services/offer";
+import OfferCard from "../../components/OfferCard/OfferCard";
+
 
 export default function UserProfile() {
   const [user, setUser] = useState({});
-  const [offerData, setOfferData] = useState(null);
-
 
   async function getUserInfo() {
     const info = await getUserContactInfo(localStorage.getItem("userId"));
 
     setUser(info);
+  }
 
-  }
-  async function getSubscriptionToProfile() {
-    const data = await getOfferSetUser("offerId");
-    setOfferData(data);
-  }
   useEffect(() => {
     getUserInfo();
-    getSubscriptionToProfile()
-  }, []);
-  
 
-  const handleSubcriptions = () => {
-    getSubscriptionToProfile();
-  };
+  }, []);
+
+ 
 
   return (
     <>
@@ -39,7 +32,10 @@ export default function UserProfile() {
         ></img>
       </header>
 
-      <div className="containerProfile">
+      <div className="containerBodyProfile">
+
+        <div className="containerProfile">
+
         <Card
           sx={{
             width: "100%",
@@ -48,15 +44,14 @@ export default function UserProfile() {
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             borderRadius: "10px",
             display: "flex",
-            flexWrap: "wrap",
-
+            flexDirection:"row",
             justifyContent: "center",
-            textAlign: "center",
             alignItems: "center",
           }}
           raised={true}
         >
-          <CardContent>
+
+        
             <div className="circularImageWrapper">
               <img
                 className="circularImage"
@@ -73,8 +68,11 @@ export default function UserProfile() {
             }}
           </UploadImage> */}
             </div>
-            <CardHeader title={`${user.name} ${user.surname}`} />
 
+            <div className="profileContent">
+              
+            <CardContent>
+            <CardHeader title={`${user.name} ${user.surname}`} />
             <Typography variant="body1">{user.about}</Typography>
             <Typography variant="body1">{user.interests}</Typography>
             <Typography variant="body1">
@@ -85,11 +83,39 @@ export default function UserProfile() {
                 user.contact_info.nationality &&
                 user.contact_info.nationality.nationality}
             </Typography>
+          </CardContent>
+          </div>
+        </Card>
 
-            <Box subscriptions ={handleSubcriptions}></Box>
+        </div>
+
+
+      <div className="containerSubscriptions">
+      <Card
+      sx={{
+        width: "100%",
+        margin: "4rem",
+        padding: "1%",
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
+        borderRadius: "10px",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
+      raised={true}
+        >
+        <CardContent style={{ display: "flex", gap: "1rem" }}>
+    
+        {user.offers?.map((subscription,i) => {
+         return (<OfferCard offer={subscription}/>)
+        })}
 
           </CardContent>
-        </Card>
+
+          </Card>
+     
+       </div>
+       
       </div>
     </>
   );

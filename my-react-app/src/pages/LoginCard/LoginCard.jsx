@@ -60,6 +60,12 @@ export default function LoginCard() {
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
+            '@media screen and (max-width: 700px)': {
+            
+              width: "80%", 
+              height:"40%",// Modifica el ancho para pantallas más pequeñas
+              maxWidth: "100%", // Ajusta el maxWidth
+            },
           }}
           raised={true}
         >

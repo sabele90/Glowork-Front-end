@@ -59,6 +59,12 @@ const SignUpCardUser = () => {
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
+            '@media screen and (max-width: 700px)': {
+            
+              width: "90%", 
+              height:"70%",// Modifica el ancho para pantallas más pequeñas
+              maxWidth: "100%", // Ajusta el maxWidth
+            },
           }}
           raised={true}
         >

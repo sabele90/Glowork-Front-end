@@ -19,9 +19,10 @@ export default function OfferCard({ offer }) {
         display: "flex",
         flexDirection: "column", // Por defecto, establece la dirección del eje principal a columna
         flexWrap: "wrap", // Asegura que las tarjetas se envuelvan en una nueva línea
-        "@media (min-width: 600px)": {
-          flexDirection: "row", // Cambia a fila en pantallas más grandes (ajusta el valor según sea necesario)
-        },
+        '@media screen and (max-width: 700px)': {
+          width: "100%", 
+         
+        }
       }}
     >
       <CardMedia

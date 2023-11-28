@@ -17,7 +17,9 @@ export default function Header() {
       <AppBar
         position="static"
         sx={{
-          backgroundColor: "white",
+          zIndex:"2",
+          width: "100vw",
+          backgroundColor: "transparent",
           display: "flex",
           justifyContent: "space-evenly",
           textAlign: "center",
@@ -25,7 +27,7 @@ export default function Header() {
       >
         <Toolbar
           sx={{
-            backgroundColor: "white",
+            backgroundColor: "transparent",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",

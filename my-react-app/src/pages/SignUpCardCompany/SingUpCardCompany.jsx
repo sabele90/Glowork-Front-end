@@ -56,6 +56,12 @@ const SingUpCardcompany = () => {
               flexDirection: "column",
               justifyContent: "center",
               textAlign: "center",
+              '@media screen and (max-width: 700px)': {
+                width: "90%", 
+                height:"90%",// Modifica el ancho para pantallas más pequeñas
+                maxWidth: "100%", // Ajusta el maxWidth
+               
+              },
             }}
             raised={true}
           >
@@ -63,18 +69,7 @@ const SingUpCardcompany = () => {
               title="Sign up"
               sx={{ marginTop: "10px", position: "relative" }}
             >
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <img
-                  src="/src/assets/images/profiile.png"
-                  alt="Avatar"
-                  style={{
-                    borderRadius: "50%",
-                    width: "80px",
-                    height: "80px",
-                    top: "-40px",
-                  }}
-                />
-              </div>
+             
             </CardHeader>
 
             <CardContent>
