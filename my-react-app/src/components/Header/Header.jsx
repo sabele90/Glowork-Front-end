@@ -8,7 +8,8 @@ import ButtonLoginHeader from "../ButtonLoginHeader/ButtonLoginHeader";
 import { useContext } from "react";
 import { LoginContext } from "../../Context/Login";
 import SideBar from "../SideBar/SideBar";
-
+import CountryList from "../CountryList/CountryList";
+import LetterTransition from "../LetterTransition/LetterTransition";
 export default function Header() {
   const { login, setLogin } = useContext(LoginContext);
 
@@ -17,7 +18,7 @@ export default function Header() {
       <AppBar
         position="static"
         sx={{
-          zIndex:"2",
+          zIndex: "2",
           width: "100vw",
           backgroundColor: "transparent",
           display: "flex",
@@ -33,14 +34,10 @@ export default function Header() {
             alignItems: "center",
           }}
         >
-          {login ? (
-            <Box>
-              <SideBar />
-            </Box>
-          ) : (
-            <></>
-          )}
+          {/* Conditionally render SideBar based on login state */}
+          {login ? <Box><SideBar /></Box> : <></>}
 
+          {/* Conditionally render logo based on login state */}
           {!login ? (
             <Box>
               <img
@@ -54,10 +51,11 @@ export default function Header() {
             <></>
           )}
 
+          {/* Home Icon with a Link to the home page */}
           <Box
             sx={{
               display: "flex",
-              marginRight: "auto", // Alinea a la derecha
+              marginRight: "auto", // Align to the right
             }}
           >
             <Link to="/" style={{ textDecoration: "none" }}>
@@ -67,6 +65,25 @@ export default function Header() {
             </Link>
           </Box>
 
+          {/* Conditionally render LetterTransition based on login state */}
+          {login ? (
+            <Box>
+              <LetterTransition />
+            </Box>
+          ) : (
+            <></>
+          )}
+
+          {/* Conditionally render CountryList based on login state */}
+          {login ? (
+            <Box>
+              <CountryList />
+            </Box>
+          ) : (
+            <></>
+          )}
+
+          {/* ButtonLoginHeader Component */}
           <Box>
             <ButtonLoginHeader />
           </Box>

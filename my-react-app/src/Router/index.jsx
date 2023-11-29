@@ -9,6 +9,7 @@ import Offers from "../pages/Offers/Offers";
 import OfferSubscription from "../pages/OfferSubscription/OfferSubscription";
 import UserProfile from "../pages/UserProfile/UserProfile";
 import Favorires from "../pages/Favorites/Favorites";
+import HomeInfo from "../pages/HomeInfo/HomeInfo";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/favorites",
         element: <Favorires/>,
+      },
+      {
+        path: "/homeInfo",
+        element: <HomeInfo/>,
       },
     ],
   },

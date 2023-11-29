@@ -1,7 +1,8 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import "./Home.css";
 import ReactPlayer from "react-player";
 import Reviews from "../../components/Reviews/Reviews";
+import { Link } from "react-router-dom";
 //{localStorage.rol === "admin" && <Button onClick= {onGetAllUsers} variant='contained'>Get all users</Button>}
 export default function Home() {
   /*   function onGetAllUsers(){
@@ -25,11 +26,25 @@ export default function Home() {
         ></ReactPlayer>
       </div>
 
-      <div className="reviews">
-        <Reviews />
+      <div className="homeInfo">
+        <Typography style={{ fontSize: '1.3rem', margin:'9rem', color: 'rgb(0, 0, 128)'}}>Welcome to Glowork! Explore a world of unique cultural experiences and volunteer opportunities through our platform. We believe in the value of cultural exchange and the spirit of giving and receiving. Whether you're an adventurous traveler or a company seeking volunteer support, Glowork is designed to connect people from all corners of the globe. Join us and embark on your volunteer journey where you can explore, learn, grow, and share. 
+     
+        </Typography>
+        <Link to="/homeInfo">
+        <Button className="infoButtom" style={{ color: 'white' }}>HOW IT WORKS</Button>
+        </Link>
       </div>
 
-      <div className="homeInfo"></div>
+      <div className="reviewsInfo">
+     
+ 
+      <Reviews />
+
+     
+       
+     
+      </div>
+     
     </div>
   );
 }

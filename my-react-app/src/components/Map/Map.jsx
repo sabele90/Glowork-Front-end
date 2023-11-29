@@ -224,13 +224,15 @@ function Map() {
   };
   return (
     <div className="App">
-      <WorldMap
-        color="blue"
-        size="xl"
-        data={data}
-        onClickFunction={(e) => clickAction(e)}
-        className="WorldMap"
-      />
+   <WorldMap
+  color="blue"
+  size="xxl"
+  data={data}
+  onClickFunction={(e) => clickAction(e)}
+  className="WorldMap"
+
+/>
+
     </div>
   );
 }

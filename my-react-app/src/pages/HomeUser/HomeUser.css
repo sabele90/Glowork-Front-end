@@ -1,52 +1,56 @@
 .photoHeaderUser {
   position: absolute;
-  left: 12em;
-  top: 5.5rem;
-  width: 15rem;
+  left: 5em;
+  bottom: 4.5rem;
+  width: 25rem;
 }
 
-.headerOffersHomeUser {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  border-radius: 2rem;
-  height: 13rem;
-  width: 100%;
-  background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2);
-}
-
-.letterHomeUser {
+.pointerMap{
   position: absolute;
-  top: 10rem;
+  right: 35rem;
+  top: 15rem;
 }
-.filterCountry {
+.pointerMap:hover {
+  transform: scale(1.1);
+  transition: transform 1.6s ease-in-out; 
+}
+.pointerMap2{
   position: absolute;
-  top: 200px;
+  right: 40rem;
+  top: 28rem;
 }
-
+.pointerMap3{
+  position: absolute;
+  right: 28rem;
+  top: 42rem;
+}
+.pointerMap4{
+  position: absolute;
+  right: 52rem;
+  top: 34rem;
+}
+.pointerMap5{
+  position: absolute;
+  right: 70rem;
+  top: 38rem;
+}
+.pointerMap6{
+  position: absolute;
+  right: 80rem;
+  top: 22rem;
+}
+.pointerMap7{
+  position: absolute;
+  right: 54rem;
+  top: 24rem;
+}
 .bodyHomeUser {
   position: relative;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
-.containerRight {
-  top: 0rem;
-  position: absolute;
-  right: 0;
-  background-color: red;
-  width: 300px;
-  height: 100%;
-}
-.containerLeft {
-  top: 0rem;
-  position: absolute;
-  background-color: red;
-  left: 0;
 
-  width: 300px;
-  height: 100%;
-}
 @media screen and (max-width: 700px) {
   .headerOffersHomeUser {
     display: flex;

@@ -31,7 +31,7 @@ export default function Reviews() {
           key={i}
           sx={{
             display: "flex",
-            margin: 2,
+            margin: 10,
             maxWidth: 300,
             height: "100%",
           }}
