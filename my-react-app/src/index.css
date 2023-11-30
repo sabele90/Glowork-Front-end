@@ -6,7 +6,10 @@ body {
 
   }
   
-
+#root{
+  margin: 0;
+  padding: 0;
+}
   .leaflet-container{
     z-index: 1;
     height: 600px;

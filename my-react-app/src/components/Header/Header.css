@@ -1,0 +1,12 @@
+.containerFooterText{
+    
+}
+
+
+
+  @media (max-width: 700px) {
+    .AppBar {
+     display: none;
+    }
+}
+  

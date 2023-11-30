@@ -1,3 +1,4 @@
+import "./Header.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,10 +17,12 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
+        className="AppBar"
         position="static"
         sx={{
-          zIndex: "2",
-          width: "100vw",
+          position: "relative",
+          zIndex: "1",
+          width: "100",
           backgroundColor: "transparent",
           display: "flex",
           justifyContent: "space-evenly",
@@ -34,10 +37,14 @@ export default function Header() {
             alignItems: "center",
           }}
         >
-          {/* Conditionally render SideBar based on login state */}
-          {login ? <Box><SideBar /></Box> : <></>}
+          {login ? (
+            <Box>
+              <SideBar />
+            </Box>
+          ) : (
+            <></>
+          )}
 
-          {/* Conditionally render logo based on login state */}
           {!login ? (
             <Box>
               <img
@@ -51,11 +58,10 @@ export default function Header() {
             <></>
           )}
 
-          {/* Home Icon with a Link to the home page */}
           <Box
             sx={{
               display: "flex",
-              marginRight: "auto", // Align to the right
+              marginRight: "auto",
             }}
           >
             <Link to="/" style={{ textDecoration: "none" }}>
@@ -65,16 +71,29 @@ export default function Header() {
             </Link>
           </Box>
 
-          {/* Conditionally render LetterTransition based on login state */}
-          {login ? (
-            <Box>
-              <LetterTransition />
-            </Box>
-          ) : (
-            <></>
-          )}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+            }}
+          >
+            {login ? (
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)", // Ajustar para centrar completamente
+                }}
+              >
+                <LetterTransition />
+              </Box>
+            ) : (
+              <></>
+            )}
+          </Box>
 
-          {/* Conditionally render CountryList based on login state */}
           {login ? (
             <Box>
               <CountryList />
@@ -83,7 +102,6 @@ export default function Header() {
             <></>
           )}
 
-          {/* ButtonLoginHeader Component */}
           <Box>
             <ButtonLoginHeader />
           </Box>

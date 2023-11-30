@@ -1,3 +1,4 @@
+import React from "react";
 import "./Footer.css";
 import {
   Box,
@@ -9,79 +10,81 @@ import {
   Divider,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Link } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Link } from "react-router-dom";
 
 function Footer() {
-  const elements = [
-    {
-      links: ["Contact"],
-    },
-    {
-      links: ["Support"],
-    },
-    {
-      links: ["People"],
-    },
-    {
-      links: ["Company"],
-    },
+  const footerColumns = [
+    { header: "Contact", links: [""] },
+    { header: "Support", links: [""] },
+    { header: "People", links: [""] },
+    { header: "Company", links: [""] },
   ];
-  function generateFooterElements() {
-    const footerElements = elements.map((column) => (
-      <Grid alignContent={"center"} key={column.header}>
+
+  const generateFooterElements = () => {
+    return footerColumns.map((column, columnIndex) => (
+      <Grid key={columnIndex} alignContent="center">
         <Box>
           <Button sx={{ color: "white", fontWeight: "bold" }}>
             {column.header}
           </Button>
         </Box>
-        {column.links.map((link, i) => (
-          <Box key={i}>
+        {column.links.map((link, linkIndex) => (
+          <Box key={linkIndex}>
             <Button sx={{ color: "white" }}>{link}</Button>
           </Box>
         ))}
       </Grid>
     ));
-    return footerElements;
-  }
+  };
 
-  //background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2)
   return (
     <footer className="footer">
       <Box
         sx={{
-      
           background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
           color: "white",
           padding: 2,
-        }}>
+        }}
+      >
+        {" "}
+        <Box display="flex" flexDirection="row" justifyContent="space-evenly">
+          <Box>hola</Box>
+          <Box>hola</Box>
+          <Box>hola</Box>
+          <Box>hola</Box>
+        </Box>
         <Container>
-          <Grid container spacing={0} justifyContent="space-evenly">
+          <Grid
+            className="gridFooter"
+            container
+            spacing={0}
+            justifyContent="space-evenly"
+          >
             {generateFooterElements()}
           </Grid>
-          <Divider sx={{ backgroundColor: "white" }}></Divider>
+          <Divider sx={{ backgroundColor: "white" }} />
         </Container>
       </Box>
+
       <Box
-      display={"flex"}
-      flexDirection={"column"}
-      alignItems={"center"}
-      py={2}
-      sx={{
-        background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
-        color: "white",
-      }}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        py={2}
+        sx={{
+          background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
+          color: "white",
+        }}
       >
         <Box>
           <IconButton sx={{ color: "white" }}>
             <LinkedInIcon />
           </IconButton>
-
           <IconButton sx={{ color: "white" }}>
             <FacebookIcon />
           </IconButton>
-
           <Link to="https://www.instagram.com/gloworkinfo/?igshid=MTk0NTkyODZkYg%3D%3D&utm_source=qr">
             <IconButton sx={{ color: "white" }}>
               <InstagramIcon />
@@ -89,7 +92,7 @@ function Footer() {
           </Link>
         </Box>
 
-        <Box margin={"2rem"}>
+        <Box margin="2rem">
           <Typography>© Glowork 2023 - All Rights Reserved</Typography>
         </Box>
       </Box>

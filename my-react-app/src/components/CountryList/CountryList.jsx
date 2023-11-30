@@ -51,6 +51,7 @@ export default function CountryList() {
         options={countryList}
         size="small"
         sx={{
+          marginRight: "4.5rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

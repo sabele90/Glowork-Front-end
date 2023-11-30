@@ -2,33 +2,31 @@ import React, { useState, useEffect } from "react";
 import { useSpring, animated, config } from "react-spring";
 
 const letters = [
-    "B",
-    "E",
-    " ",
-    "P",
-    "A",
-    "R",
-    "T",
-    " ",
-    "O",
-    "F",
-    " ",
-    "O",
-    "U",
-    "R",
-    " ",
-    "C",
-    "O",
-    "M",
-    "M",
-    "U",
-    "N",
-    "I",
-    "T",
-    "Y",
-    
-  ]
-  
+  "B",
+  "E",
+  " ",
+  "P",
+  "A",
+  "R",
+  "T",
+  " ",
+  "O",
+  "F",
+  " ",
+  "O",
+  "U",
+  "R",
+  " ",
+  "C",
+  "O",
+  "M",
+  "M",
+  "U",
+  "N",
+  "I",
+  "T",
+  "Y",
+];
 
 const LetterTransitionInfo = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,7 +69,7 @@ const AnimatedLetter = ({ isVisible, delay, children }) => {
         letterSpacing: "0",
         fontWeight: 20,
         fontSize: "2rem",
-        color:"#1976d2",
+        color: "#1976d2",
         transition: "all 100ms ease",
       }}
     >
