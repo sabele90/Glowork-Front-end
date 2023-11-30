@@ -5,7 +5,7 @@ import { LoginContext } from "./Context/Login";
 import router from "./Router";
 
 function App() {
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const obj = {
     login,

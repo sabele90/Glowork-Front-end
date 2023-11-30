@@ -5,14 +5,14 @@ import "./OfferSubscription.css";
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
 import MapLocations from "../../components/MapLocations/MapLocations";
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import { emailSubscriptionCompany, emailSubscriptionUser } from "../../services/email";
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
-
-
 
 export default function OfferSubscription() {
   const [open, setOpen] = React.useState(false);
@@ -20,19 +20,30 @@ export default function OfferSubscription() {
   const [myPos, setMyPos] = useState(null);
   const data = useParams();
 
-
   async function getMySubscriptions() {
-    const result = await getOfferSetUser(offer.id);
-    (result) ? setOpen(true) : console.log("algo fue mal");
+    try {
+      const result = await getOfferSetUser(offer.id);
+      if (result) {
+        setOpen(true);
+      } else {
+        console.log("Algo fue mal");
+      }
+    } catch (error) {
+      console.error("Error en getMySubscriptions:", error);
+      if (error.response) {
+        console.error("Respuesta del servidor:", error.response.data);
+      }
+    }
   }
+  
 
- 
   async function getOneOfferData() {
     const oneOffer = await getOneOffer(data.offer_id);
-    setOffer(oneOffer);
-  }
- 
 
+    setOffer(oneOffer);
+    console.log(oneOffer)
+  }
+  
   function getMyPos() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -40,7 +51,6 @@ export default function OfferSubscription() {
       },
       (error) => {
         console.error("Error getting geolocation:", error);
-        // Handle the error (optional)
       }
     );
   }
@@ -49,33 +59,29 @@ export default function OfferSubscription() {
     getOneOfferData();
   }, []);
 
-
-  const handleClick = () => {
-  
+  const handleClick = async () => {
     getMySubscriptions();
+    if (offer.company.name) {
+      await emailSubscriptionCompany(offer.company.name);
+      await emailSubscriptionUser(offer.company.name)
+    }
   };
-
+  
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
     setOpen(false);
   };
 
-
-
   function showOffer() {
     return (
-
       <div className="containerOfferSubscription">
-
         <div className="containerMap&Gallery">
-
           <div className="containerGeolocation">
             {myPos && <MapLocations myPos={offer.location.coordinates} />}
           </div>
-
 
           <div className="gallery">
             {[1, 2, 3, 4].map((index) => (
@@ -96,7 +102,6 @@ export default function OfferSubscription() {
               />
             ))}
           </div>
-
         </div>
 
         <Card
@@ -121,65 +126,61 @@ export default function OfferSubscription() {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-
               }}
-
-
-              title={offer.title}></CardHeader>
+              title={offer.title}
+            ></CardHeader>
             <Typography
               sx={{
                 display: "flex",
                 justifyContent: "center",
-
               }}
-
-              variant="body2">
+              variant="body2"
+            >
               {offer.start_date} to {offer.end_date}
             </Typography>
             <Typography variant="body1">{offer.description}</Typography>
             <Typography variant="body1">{offer.requirements}</Typography>
             <Typography variant="body1">{offer.benefits}</Typography>
             <Typography
-
               sx={{
                 display: "flex",
                 justifyContent: "center",
-
               }}
-
-              variant="body1-">Max Volunter :</Typography>
+              variant="body1-"
+            >
+              Max Volunter :
+            </Typography>
             <Typography
               sx={{
                 display: "flex",
                 justifyContent: "center",
-
               }}
-
-
-              variant="body1-">
+              variant="body1-"
+            >
               {offer.max_volunteers}
             </Typography>
           </CardContent>
 
-
-
-          <Stack spacing={2} sx={{ width: '100%' }}>
-            <Button sx={{ margin: "1rem" }} variant="contained" onClick={handleClick}>
+          <Stack spacing={2} sx={{ width: "100%" }}>
+            <Button
+              sx={{ margin: "1rem" }}
+              variant="contained"
+              onClick={handleClick}
+            >
               APPLY
             </Button>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-              <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                sx={{ width: "100%" }}
+              >
                 This is a success message!
               </Alert>
             </Snackbar>
-     
           </Stack>
-
-
         </Card>
       </div>
-
-
     );
   }
 

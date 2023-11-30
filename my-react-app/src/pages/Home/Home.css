@@ -22,8 +22,9 @@
   align-items: center;
   text-align: center;
   margin-top: 600px;
-  width: 100%;
-  height: 300px;
+  width: 100vw;
+  color: #003b75;
+  font-weight: 1000;
 }
 .infoButtom {
   position: absolute;
@@ -36,7 +37,7 @@
     linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0));
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+justify-content: center;
   position: relative;
   overflow: hidden; /* Oculta el contenido que sobresale de los bordes */
 }
@@ -48,19 +49,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
   }
 
   .videoBackground {
-    display: none;
-  }
+  z-index: 2;
+  top: 0rem;
 
+  }
   .homeInfo {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0; /* Adjust margin for smaller screens */
+   text-align: justify;
+   margin-top: 8rem;
+
+    /* Ajusta el tamaño y peso de la fuente para pantallas más pequeñas */
+    font-size: 0.8rem; /* Cambia este valor según sea necesario */
+    font-weight: 500;  /* Cambia este valor según sea necesario */
+
+
   }
+.homeInfoText{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+ text-align: justify;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  width: 80%;
+
+}
 
   .infoButton {
     display: flex;
@@ -71,8 +89,10 @@
   }
 
   .reviewsInfo {
+   
     display: flex;
     flex-direction: column;
+    align-items: center;
     /* Additional styles if needed */
   }
 }

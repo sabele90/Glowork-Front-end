@@ -16,7 +16,7 @@
     .footer {
       flex-direction: column; /* Adjust the direction for smaller screens */
       align-items: center; /* Center the items horizontally */
-      padding: 10px; /* Add padding for better spacing */
+      /* padding: 10px;  *//* Add padding for better spacing */
       /* Additional styling for smaller screens */
     }
 

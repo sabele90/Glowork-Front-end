@@ -56,7 +56,7 @@ export default function Offers() {
           className="photoHeaderOffer"
           src="/src/assets/images/headerOffers.png"
         ></img>
-        <CountryList />
+      
       </header>
 
       <div className="OfferList">

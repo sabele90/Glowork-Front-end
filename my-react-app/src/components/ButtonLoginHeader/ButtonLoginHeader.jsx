@@ -3,12 +3,8 @@
 import { Button, ButtonGroup } from '@mui/material';
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-
 import RegisterUser from '../Header/SplitButtom/SplitButtom'
 import { LoginContext } from '../../Context/Login';
-
-
-
 
 export default function ButtonLoginHeader() {
 
@@ -21,9 +17,7 @@ export default function ButtonLoginHeader() {
       navigate("/");
     };
 
-
   return (
-
     <ButtonGroup
             variant="contained"
             aria-label="outlined primary button group"

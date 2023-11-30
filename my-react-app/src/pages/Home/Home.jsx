@@ -3,6 +3,7 @@ import "./Home.css";
 import ReactPlayer from "react-player";
 import Reviews from "../../components/Reviews/Reviews";
 import { Link } from "react-router-dom";
+import videoBackground from "../../assets/video/videobackground.mp4"
 //{localStorage.rol === "admin" && <Button onClick= {onGetAllUsers} variant='contained'>Get all users</Button>}
 export default function Home() {
   /*   function onGetAllUsers(){
@@ -18,24 +19,26 @@ export default function Home() {
           frameBorder="0"
           className="video"
           title="YouTube Video"
-          url="../src/assets/video/videobackground.mp4"
+          url={videoBackground}
           controls={false} // Configura controls en false para ocultar los controles
           playing={true} // Auto-reproducción
           loop={true}
           volume={1}
-        ></ReactPlayer>
+          autoplay={true}
+
+       />
       </div>
 
       <div className="homeInfo">
+
         <Typography
+        className="homeInfoText"
           style={{
             fontSize: "1.3rem",
             margin: "9rem",
-
-            "@media screen and (max-width: 700px)": {
-              margin: "4rem",
-              fontSize: "0.3rem",
-            },
+            fontWeight:"700",
+         
+    
           }}
         >
           Welcome to Glowork! Explore a world of unique cultural experiences and
@@ -47,7 +50,8 @@ export default function Home() {
           learn, grow, and share.
         </Typography>
         <Link to="/homeInfo">
-          <Button className="infoButtom" style={{ color: "white" }}>
+
+          <Button className="infoButtom" style={{ color: "#003b75", fontWeight:"700"}}>
             HOW IT WORKS
           </Button>
         </Link>

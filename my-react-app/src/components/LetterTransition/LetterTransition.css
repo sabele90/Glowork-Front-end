@@ -34,3 +34,16 @@
   .fly-in-text.hidden :nth-child(even) {
     transform: translate(0, 200px);
   }
+
+  @media screen and (max-width: 700px) {
+    .fly-in-text , .fly-in-text.hidden{
+      display: none;
+    }
+    .fly-in-text.hidden :nth-child(odd) {
+      display: none;
+    }
+    
+    .fly-in-text.hidden :nth-child(even) {
+      display: none;
+    }
+  }

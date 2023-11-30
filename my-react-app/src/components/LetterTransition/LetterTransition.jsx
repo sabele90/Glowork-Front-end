@@ -62,7 +62,9 @@ const AnimatedLetter = ({ isVisible, delay, children }) => {
   });
 
   return (
+
     <animated.span
+  
       style={{
         ...props,
         display: "inline-block",
@@ -74,10 +76,12 @@ const AnimatedLetter = ({ isVisible, delay, children }) => {
         fontSize: "1rem",
         color: "#1976d2",
         transition: "all 100ms ease",
+       
       }}
     >
       {children}
     </animated.span>
+   
   );
 };
 

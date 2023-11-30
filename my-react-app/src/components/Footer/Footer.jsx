@@ -45,16 +45,12 @@ function Footer() {
         sx={{
           background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
           color: "white",
-          padding: 2,
+          padding: 5,
+          
         }}
       >
         {" "}
-        <Box display="flex" flexDirection="row" justifyContent="space-evenly">
-          <Box>hola</Box>
-          <Box>hola</Box>
-          <Box>hola</Box>
-          <Box>hola</Box>
-        </Box>
+      
         <Container>
           <Grid
             className="gridFooter"
@@ -78,7 +74,7 @@ function Footer() {
           color: "white",
         }}
       >
-        <Box>
+        <Box sx={{width: '100vw', display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
           <IconButton sx={{ color: "white" }}>
             <LinkedInIcon />
           </IconButton>

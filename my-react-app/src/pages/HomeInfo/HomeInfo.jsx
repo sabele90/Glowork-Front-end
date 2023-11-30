@@ -26,6 +26,7 @@ export default function HomeInfo() {
           justifyContent: "center",
           
           "@media screen and (max-width: 700px)": {
+            fontSize:"1rem",
             width: "90%",
             height: "70%",
             maxWidth: "100%",

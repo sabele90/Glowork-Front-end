@@ -48,7 +48,7 @@ export default function Header() {
           {!login ? (
             <Box>
               <img
-                className="logo"
+                className="logoHome"
                 src="/src/assets/images/logoHeader.png"
                 width="100"
                 style={{ marginTop: "1px" }}

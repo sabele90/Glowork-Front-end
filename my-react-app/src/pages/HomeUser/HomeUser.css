@@ -52,24 +52,18 @@
 
 
 @media screen and (max-width: 700px) {
-  .headerOffersHomeUser {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    border-radius: 2rem;
-    height: 13rem;
-    width: 100%;
-    background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2);
-  }
+
+.bodyHomeUser{
+  height: 70vh;
+}  
   .letterHomeUser {
     display: none;
   }
 
   .photoHeaderUser {
     position: absolute;
-    left: 5em;
-    top: 2rem;
-    width: 8rem;
+    top: 15rem;
+    left: 3rem;
+    width: 25rem;
   }
 }

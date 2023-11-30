@@ -50,8 +50,7 @@ function HomeUser() {
         ></img>
 
         <Map />
-        <div className="containerRight"></div>
-        <div className="containerLeft"></div>
+    
       </div>
     </>
   );

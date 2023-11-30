@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, CardActions } from "@mui/material";
+import { CardActionArea} from "@mui/material";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
@@ -31,7 +31,11 @@ export default function Reviews() {
           key={i}
           sx={{
             display: "flex",
-            margin: 10,
+            justifyContent:"space-around",
+            marginTop:5,
+            marginLeft: 5,
+            marginRight: 5,
+            marginBottom:10,
             maxWidth: 300,
             height: "100%",
           }}
@@ -41,7 +45,7 @@ export default function Reviews() {
               component="img"
               height="150"
               image={review.profile_photo}
-              alt="green iguana"
+           
             />
             <CardContent
               sx={{

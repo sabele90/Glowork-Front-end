@@ -71,6 +71,8 @@ const AnimatedLetter = ({ isVisible, delay, children }) => {
         fontSize: "2rem",
         color: "#1976d2",
         transition: "all 100ms ease",
+     
+      
       }}
     >
       {children}
