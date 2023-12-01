@@ -35,7 +35,20 @@ const SignUpCardUser = () => {
 
 
   return (
+    <>
+         <img
+            className="backgroundTop"
+            src="/src/assets/images/backgroundTop.png"
+          ></img>
+
     <div className="bodySignUpUser">
+        
+
+          <img
+            className="backgroundBottom"
+            src="/src/assets/images/backgroundBottom.png"
+       
+          ></img>
 
       <div className="imageContainer">
           <img
@@ -62,8 +75,8 @@ const SignUpCardUser = () => {
             '@media screen and (max-width: 700px)': {
             
               width: "90%", 
-              height:"70%",// Modifica el ancho para pantallas más pequeñas
-              maxWidth: "100%", // Ajusta el maxWidth
+              height:"70%",
+              maxWidth: "100%", 
             },
           }}
           raised={true}
@@ -148,6 +161,7 @@ const SignUpCardUser = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 export default SignUpCardUser;

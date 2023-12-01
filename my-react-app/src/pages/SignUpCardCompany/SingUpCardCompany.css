@@ -1,19 +1,15 @@
 .bodySignUpCompany {
    position: relative;
+   margin: 0;
     display: flex;
-    margin-top: 1rem;
-    background-image: url(../../assets/images/backgroundRegister.png);
-    background-size: contain;
-    background-repeat: no-repeat;
     width: 100vw;
-    max-width: 1720px; /* Ajusta según tus necesidades */
-    height: 800px;
+    height: 93vh;
     
   }
 
 .containerSignUpCompany {
-
-   margin: 20px;
+ 
+   margin-right:10rem;
    display:flex ;
    justify-content: end;
    align-items: center;
@@ -34,16 +30,28 @@
   @media screen and (max-width: 700px) {
     .bodySignUpCompany {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100vw;
+      max-width: 1720px; 
+      height: 800px;
+   
+     
+     
     }
   
     .containerSignUpCompany {
-      width: 80%; /* O ajusta según tus necesidades para controlar el ancho de la tarjeta */
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 1rem; 
+  
+  
     }
   
     .imageCompany {
-      display: none; /* Oculta la imagen en pantallas pequeñas */
+      display: none; 
     }
   }
   

@@ -27,6 +27,11 @@ export default function Header() {
           display: "flex",
           justifyContent: "space-evenly",
           textAlign: "center",
+          '@media screen and (max-width: 700px)': {
+            
+            width: "100%", 
+            
+          },
         }}
       >
         <Toolbar
@@ -35,6 +40,7 @@ export default function Header() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+          
           }}
         >
           {login ? (
@@ -46,14 +52,14 @@ export default function Header() {
           )}
 
           {!login ? (
-            <Box>
+           
               <img
                 className="logoHome"
                 src="/src/assets/images/logoHeader.png"
                 width="100"
                 style={{ marginTop: "1px" }}
               ></img>
-            </Box>
+           
           ) : (
             <></>
           )}
@@ -87,7 +93,8 @@ export default function Header() {
                   transform: "translate(-50%, -50%)", // Ajustar para centrar completamente
                 }}
               >
-                <LetterTransition />
+               <LetterTransition  />
+
               </Box>
             ) : (
               <></>
@@ -95,16 +102,18 @@ export default function Header() {
           </Box>
 
           {login ? (
-            <Box>
+            <Box className="countryListResponsive">
               <CountryList />
             </Box>
           ) : (
             <></>
           )}
 
-          <Box>
+            <Box>
             <ButtonLoginHeader />
-          </Box>
+            </Box>
+           
+         
         </Toolbar>
       </AppBar>
     </Box>

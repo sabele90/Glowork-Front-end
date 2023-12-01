@@ -5,9 +5,10 @@ import Map from "../../components/Map/Map";
 function HomeUser() {
   return (
     <>
-      <div className="filterCountry"></div>
-
+    
+   
       <div className="bodyHomeUser">
+   
         <img
           className="pointerMap"
           src="/src/assets/images/pointer.png"

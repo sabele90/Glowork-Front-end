@@ -1,27 +1,13 @@
-.headerUserProfile{
-    display: flex;
-    justify-content: start;
-    margin-top: 1rem;
-    border-radius: 2rem;
-    height: 10rem;
-    margin: 2rem;
-    background: radial-gradient(circle, #2196f3, #64b5f6, #1976d2);
-  }
 
-.photoHeaderProfile{
-   
-    position: absolute;
-    left: 7rem;
-    margin-top: -7rem;
-  width: 23rem;
-  height: 22rem;
-}
+
 
 .containerProfile{
+   position: relative;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
-
     margin: 2rem;
+    z-index: -3;
 }
 
 .containerSubscriptions{
@@ -33,7 +19,7 @@
 .circularImageWrapper {
   position: relative;
   width: 50rem; /* Adjust the size as needed */
-  height: 20rem; /* Adjust the size as needed */
+  height: 23rem; /* Adjust the size as needed */
   overflow: hidden;
   border-radius: 50%;
 }
@@ -45,4 +31,38 @@
   border-radius: 50%;
 }
 
-/* Add any additional styling for UploadImage or other elements as needed */
+.backgroundTopProfile {
+  bottom: 30rem;
+  height: 31rem;
+  position: absolute;
+  left: 0;
+  width: 116rem;
+  z-index: -1;
+  border-top-left-radius: 170px;
+}
+@media screen and (max-width: 700px) { 
+
+
+  .containerProfile{
+    
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 800px;
+
+ }
+ 
+ .backgroundTopProfile {
+display: none;
+}
+.circularImageWrapper {
+  position: relative;
+  width:15rem; /* Adjust the size as needed */
+  height: 23rem; /* Adjust the size as needed */
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+ 
+}

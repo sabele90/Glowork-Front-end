@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated, config } from "react-spring";
+import "./LetterTransition.css"
 
 const letters = [
   "W",

@@ -32,10 +32,10 @@ export default function Reviews() {
           sx={{
             display: "flex",
             justifyContent:"space-around",
-            marginTop:5,
+            marginTop:0,
             marginLeft: 5,
             marginRight: 5,
-            marginBottom:10,
+            marginBottom:18,
             maxWidth: 300,
             height: "100%",
           }}

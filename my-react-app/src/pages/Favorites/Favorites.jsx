@@ -3,7 +3,7 @@ import OfferCard from "../../components/OfferCard/OfferCard";
 import { getUserFavorites } from "../../services/user";
 import { LoginContext } from "../../Context/Login";
 import { Card, CardContent } from "@mui/material";
-
+import "./Favorites.css"
 export default function Favorites() {
   const [favoriteOffers, setFavoriteOffers] = useState([]);
   const { userId, favorites, setFavorites } = useContext(LoginContext);
@@ -21,6 +21,10 @@ export default function Favorites() {
   return (
 
     <div className="containerFavorites">
+       <img
+            className="backgroundTopFavorites"
+            src="/src/assets/images/backgroundTop.png"
+          ></img>
     <Card
     sx={{
      
@@ -31,11 +35,19 @@ export default function Favorites() {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
+      '@media screen and (max-width: 700px)': {
+        flexDirection: "column",
+        width: "90%", 
+        margin: "2rem auto"
+       
+  
+       
+      },
     }}
     raised={true}
       >
-      <CardContent style={{ display: "flex", gap: "1rem" }}>
-  
+   
+       <div className="containerCardFavorites">
  
     
     {favorites &&
@@ -44,7 +56,7 @@ export default function Favorites() {
       ))}
 
 
-        </CardContent>
+</div>
 
         </Card>
 

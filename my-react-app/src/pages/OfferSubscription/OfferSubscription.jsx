@@ -90,7 +90,7 @@ export default function OfferSubscription() {
                 src={offer[`photo_${index}`]}
                 alt={`Photo ${index}`}
                 style={{
-                  marginTop: "3rem",
+                  marginTop: "0rem",
                   marginLeft: "2rem",
                   margin: "0.5rem",
                   width: "200px",
@@ -107,9 +107,10 @@ export default function OfferSubscription() {
         <Card
           sx={{
             width: "30%",
-            padding: "5%",
-            marginTop: "4%",
-            height: "65%",
+            padding: "4%",
+            marginTop: "3%",
+            marginLeft: "2rem",
+            height: "66%",
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             borderRadius: "10px",
             display: "flex",
@@ -121,20 +122,27 @@ export default function OfferSubscription() {
           raised={true}
         >
           <CardContent>
-            <CardHeader
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-              }}
-              title={offer.title}
-            ></CardHeader>
+          <CardHeader
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    "& .MuiTypography-root": {
+      fontSize: "56px", 
+    },
+  }}
+  title={offer.title}
+>
+
+</CardHeader>
+
             <Typography
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                margin: "1rem",
               }}
-              variant="body2"
+              variant="h5"
             >
               {offer.start_date} to {offer.end_date}
             </Typography>
@@ -155,13 +163,13 @@ export default function OfferSubscription() {
                 display: "flex",
                 justifyContent: "center",
               }}
-              variant="body1-"
+              variant="h5"
             >
               {offer.max_volunteers}
             </Typography>
           </CardContent>
 
-          <Stack spacing={2} sx={{ width: "100%" }}>
+          <Stack spacing={2} sx={{ width: "18%" }}>
             <Button
               sx={{ margin: "1rem" }}
               variant="contained"

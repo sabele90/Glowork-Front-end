@@ -30,8 +30,13 @@ const SingUpCardcompany = () => {
     console.log("Form submitted:", formData);
   };
 
-  return (
-    
+  return ( 
+    <>
+    <img
+    className="backgroundTop"
+    src="/src/assets/images/backgroundTop.png"
+  ></img>
+
       <div className="bodySignUpCompany">
 
         <div className="imageContainer">
@@ -40,6 +45,13 @@ const SingUpCardcompany = () => {
             src="/src/assets/images/companyRegister.png"
           ></img>
         </div>
+
+     
+          <img
+            className="backgroundBottom"
+            src="/src/assets/images/backgroundBottom.png"
+       
+          ></img>
 
         <div className="containerSignUpCompany">
           <Card
@@ -138,7 +150,7 @@ const SingUpCardcompany = () => {
    
         </div>
       </div>
-    
+      </>
   );
 };
 

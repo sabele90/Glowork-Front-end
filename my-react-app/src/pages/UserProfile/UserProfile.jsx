@@ -1,10 +1,12 @@
 import "./UserProfile.css";
-import { Box, Card, CardContent, CardHeader, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUserContactInfo } from "../../services/user";
 import UploadImage from "../../components/UploadImage/UploadImage";
 import { getOfferSetUser } from "../../services/offer";
 import OfferCard from "../../components/OfferCard/OfferCard";
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 
 export default function UserProfile() {
@@ -21,16 +23,16 @@ export default function UserProfile() {
 
   }, []);
 
- 
 
+
+ 
   return (
     <>
-      <header className="headerUserProfile">
-        <img
-          className="photoHeaderProfile"
-          src="/src/assets/images/headerProfile.png"
-        ></img>
-      </header>
+       <img
+            className="backgroundTopProfile"
+            src="/src/assets/images/backgroundTop.png"
+          ></img>
+
 
       <div className="containerBodyProfile">
 
@@ -38,15 +40,32 @@ export default function UserProfile() {
 
         <Card
           sx={{
+           
             width: "100%",
-            margin: "4rem",
-            padding: "5%",
+            marginBottom: "0rem",
+            marginTop:"1.5rem",
+            marginRight:"4rem",
+            marginLeft:"4rem",
+            padding: "3%",
             backgroundColor: "rgba(255, 255, 255, 0.5)",
+            backgroundImage: "url('/src/assets/images/backgroundCardProfile.jpg')",
+            backgroundSize: "cover", // You might need this to ensure the image covers the entire background
             borderRadius: "10px",
             display: "flex",
             flexDirection:"row",
             justifyContent: "center",
             alignItems: "center",
+            "@media screen and (max-width: 700px)": {
+            margin: "0",
+            display: "flex",
+            alignContent: "center",
+            textAlign: "center",
+            alignItems: "center",
+            flexDirection:"column",
+            width: "80%",
+            height: "100%",
+    
+            },
           }}
           raised={true}
         >
@@ -69,42 +88,86 @@ export default function UserProfile() {
           </UploadImage> */}
             </div>
 
+      <Box sx={{ '& > :not(style)': { m: 1 }, position:"absolute", left:"26rem", bottom:"5rem",
+     "@media screen and (max-width: 700px)": {
+      left :"2rem" , 
+      top:"5rem",
+    },}}>
+        <Fab color="secondary" aria-label="add">
+          <AddIcon />
+        </Fab>
+      </Box>
+
             <div className="profileContent">
               
             <CardContent>
-            <CardHeader title={`${user.name} ${user.surname}`} />
+            <CardHeader
+  title={
+    <Typography variant="h1">
+      {`${user.name} ${user.surname}`}
+    </Typography>
+  }
+/>
             <Typography variant="body1">{user.about}</Typography>
             <Typography variant="body1">{user.interests}</Typography>
-            <Typography variant="body1">
+            <Typography variant="h4">
               {user.contact_info && user.contact_info.date_of_birth}
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="h5">
               {user.contact_info &&
                 user.contact_info.nationality &&
                 user.contact_info.nationality.nationality}
             </Typography>
           </CardContent>
+          <Button sx={{ margin: "2rem", 
+          position:"absolute",
+           right :"10rem" , 
+           top:"24rem",
+           "@media screen and (max-width: 700px)": {
+            right :"2rem" , 
+            top:"45rem",
+          },
+      
+           
+           
+           
+           
+           }} color="secondary" variant="contained" >
+                
+                
+                EDIT </Button>
           </div>
+        
         </Card>
-
+        
         </div>
 
 
       <div className="containerSubscriptions">
       <Card
       sx={{
+      
         width: "100%",
-        margin: "4rem",
+        height:"18rem",
+        marginTop: "0rem",
+        marginRight:"4rem",
+        marginLeft:"4rem",
         padding: "1%",
         backgroundColor: "rgba(255, 255, 255, 0.5)",
         borderRadius: "10px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
+        '@media screen and (max-width: 700px)': {
+            
+          display: "none",
+        },
       }}
       raised={true}
         >
-        <CardContent style={{ display: "flex", gap: "1rem" }}>
+         
+          
+           <CardContent style={{ display: "flex", gap: "1rem" }}>
     
         {user.offers?.map((subscription,i) => {
          return (<OfferCard offer={subscription}/>)

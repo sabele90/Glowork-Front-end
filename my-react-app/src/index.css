@@ -12,6 +12,7 @@ body {
 }
   .leaflet-container{
     z-index: 1;
-    height: 600px;
-    width: 850px;
+    height: 560px;
+    width: 930px;
+    border-radius: 5%;
 }

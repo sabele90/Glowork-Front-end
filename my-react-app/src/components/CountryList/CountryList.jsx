@@ -51,13 +51,19 @@ export default function CountryList() {
         options={countryList}
         size="small"
         sx={{
-          marginRight: "4.5rem",
+          marginRight: "17rem",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignContent: "center",
           width: 300,
           background: "white",
+          '@media screen and (max-width: 700px)': {
+            
+            width: "9rem", 
+            marginRight: "1rem",
+            
+          },
         }}
         renderInput={(params) => (
           <TextField

@@ -44,7 +44,8 @@ function SideBar() {
      
      <List>
   {["Profile", "Inbox", "Favorites", "Subscriptions", "Home"].map((text) => (
-    <Link key={text} to={text === "Favorites" ? "/favorites" : text === "Home" ? "/home_user" : "/profile_user"}>
+   <Link key={text} to={text === "Favorites" ? "/favorites" : text === "Home" ? "/home_user" : text === "Subscriptions" ? "/subscriptions_profile" : "/profile_user"}>
+
       <ListItem key={text} disablePadding>
         <ListItemButton>
           <ListItemIcon>

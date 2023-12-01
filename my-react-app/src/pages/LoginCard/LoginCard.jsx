@@ -40,6 +40,11 @@ export default function LoginCard() {
 
   return (
     <>
+      <img
+        className="backgroundTop"
+        src="/src/assets/images/backgroundTop.png"
+      ></img>
+
       <div className="bodyLogin">
         <img
           className="logo"
@@ -47,12 +52,18 @@ export default function LoginCard() {
           alt="logo"
           width="100"
         ></img>
+
+        <img
+          className="backgroundBottom"
+          src="/src/assets/images/backgroundBottom.png"
+        ></img>
+
         <Card
           sx={{
             width: "20%",
             height: "30%",
-            padding: "5%", // Utilizando un porcentaje para el padding
-            margin: "5%", // Utilizando un porcentaje para el margin
+            padding: "3%", // Utilizando un porcentaje para el padding
+            margin: "2%", // Utilizando un porcentaje para el margin
             maxWidth: "70%", // Utilizando un porcentaje para el maxWidth
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             borderRadius: "10px",
@@ -60,10 +71,9 @@ export default function LoginCard() {
             flexDirection: "column",
             justifyContent: "center",
             textAlign: "center",
-            '@media screen and (max-width: 700px)': {
-            
-              width: "80%", 
-              height:"40%",// Modifica el ancho para pantallas más pequeñas
+            "@media screen and (max-width: 700px)": {
+              width: "80%",
+              height: "40%", // Modifica el ancho para pantallas más pequeñas
               maxWidth: "100%", // Ajusta el maxWidth
             },
           }}

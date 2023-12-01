@@ -43,7 +43,7 @@ function Footer() {
     <footer className="footer">
       <Box
         sx={{
-          background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
+          background: "linear-gradient(to right, #2196f3, #64b5f6, #1976d2)",
           color: "white",
           padding: 5,
           
@@ -70,7 +70,7 @@ function Footer() {
         alignItems="center"
         py={2}
         sx={{
-          background: "radial-gradient(circle, #2196f3, #64b5f6, #1976d2)",
+          background: "linear-gradient(to  right, #2196f3, #64b5f6, #1976d2)",
           color: "white",
         }}
       >

@@ -1,20 +1,31 @@
-    .bodyLogin {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    height:100vh;
-    width: 100vw;
-    background-image: url(../../assets/images/backgroundLogin.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-y: 20px;
-    
-  }
-  
-  .logo {
-    margin-top: 100px;
-  }
+.bodyLogin {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}
 
+.logo {
+  margin-top: 11rem;
+}
 
-  
+.backgroundTop {
+ bottom: 30rem;
+  height: 31rem;
+  position: absolute;
+  left: 0;
+  width: 116rem;
+  z-index: -1;
+  border-top-left-radius: 170px;
+}
+
+.backgroundBottom {
+  bottom: 0;
+  height: 55rem;
+  position: absolute;
+  width: 116rem;
+  z-index: -1;
+}

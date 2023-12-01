@@ -51,13 +51,10 @@ export default function Offers() {
 
   return (
     <>
-      <header className="headerOffers">
-        <img
-          className="photoHeaderOffer"
-          src="/src/assets/images/headerOffers.png"
-        ></img>
-      
-      </header>
+     <img
+            className="backgroundTop"
+            src="/src/assets/images/backgroundTop.png"
+          ></img>
 
       <div className="OfferList">
         {offers.map((offer, i) => (
