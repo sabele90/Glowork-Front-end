@@ -58,11 +58,9 @@ export default function CountryList() {
           alignContent: "center",
           width: 300,
           background: "white",
-          '@media screen and (max-width: 700px)': {
-            
-            width: "9rem", 
+          "@media screen and (max-width: 700px)": {
+            width: "9rem",
             marginRight: "1rem",
-            
           },
         }}
         renderInput={(params) => (

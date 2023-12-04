@@ -14,7 +14,6 @@ export default function HomeInfo() {
       <Card
         className="cardContainer"
         sx={{
-          backgroundColor: "rgba(255, 255, 255, 0.1)", // Background color with opacity for glass effect
           width: "60%",
           height: "70%",
           padding: "1%",
@@ -24,9 +23,9 @@ export default function HomeInfo() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          
+          color: "#003b75",
           "@media screen and (max-width: 700px)": {
-            fontSize:"1rem",
+            fontSize: "1rem",
             width: "90%",
             height: "70%",
             maxWidth: "100%",
@@ -99,8 +98,8 @@ export default function HomeInfo() {
           padding: "1%", // Using a percentage for padding
           margin: "7%", // Using a percentage for margin
           maxWidth: "100%", // Using a percentage for maxWidth
-          backgroundColor: "rgba(255, 255, 255, 0.1)", // Background color with opacity for glass effect
-
+          backgroundColor: "linear-gradient(#ffffff, #64b5f6, #1976d2)",
+          color: "#003b75",
           borderRadius: "10px",
           display: "flex",
           flexDirection: "column",
@@ -115,13 +114,13 @@ export default function HomeInfo() {
         raised={true}
       >
         <CardContent>
-        <Typography variant="h3" margin={3} textAlign={"center"}>
+          <Typography variant="h3" margin={3} textAlign={"center"}>
             For Volunteers
           </Typography>
           <Typography variant="h5">
             <span style={{ fontWeight: "bold" }}>1.</span> Create Your Profile
           </Typography>
-       
+
           <Typography>
             Sign up as a volunteer, highlight your skills, experiences, and
             motivations. Tell us what you're passionate about.
@@ -129,7 +128,7 @@ export default function HomeInfo() {
           <Typography variant="h5">
             <span style={{ fontWeight: "bold" }}>2.</span>Explore Opportunities
           </Typography>
-      
+
           <Typography>
             Browse through volunteer opportunities offered by businesses. Filter
             by location, duration, and benefits.
@@ -137,7 +136,7 @@ export default function HomeInfo() {
           <Typography variant="h5">
             <span style={{ fontWeight: "bold" }}>3.</span>Apply
           </Typography>
-       
+
           <Typography>
             Send applications to the opportunities that interest you. Customize
             your message to highlight why you're the perfect candidate.
@@ -145,7 +144,7 @@ export default function HomeInfo() {
           <Typography variant="h5">
             <span style={{ fontWeight: "bold" }}>4.</span>Connect with Companies
           </Typography>
-      
+
           <Typography>
             Communicate with companies interested in your profile, participate
             in interviews, and ensure the opportunity is suitable for both
@@ -154,7 +153,7 @@ export default function HomeInfo() {
           <Typography variant="h5">
             <span style={{ fontWeight: "bold" }}>5.</span>Collaborate and Share
           </Typography>
-       
+
           <Typography>
             {" "}
             After completing your volunteering experience, share your feedback

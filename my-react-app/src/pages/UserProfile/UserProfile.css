@@ -58,8 +58,8 @@ display: none;
 }
 .circularImageWrapper {
   position: relative;
-  width:15rem; /* Adjust the size as needed */
-  height: 23rem; /* Adjust the size as needed */
+  width:20rem; /* Adjust the size as needed */
+  height: 20rem; /* Adjust the size as needed */
   overflow: hidden;
   border-radius: 50%;
 }

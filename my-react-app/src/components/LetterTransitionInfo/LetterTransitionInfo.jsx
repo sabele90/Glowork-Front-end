@@ -69,10 +69,8 @@ const AnimatedLetter = ({ isVisible, delay, children }) => {
         letterSpacing: "0",
         fontWeight: 20,
         fontSize: "2rem",
-        color: "#1976d2",
+        color: "#003b75",
         transition: "all 100ms ease",
-     
-      
       }}
     >
       {children}

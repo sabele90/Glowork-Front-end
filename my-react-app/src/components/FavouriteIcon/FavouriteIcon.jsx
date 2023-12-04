@@ -20,11 +20,9 @@ export default function FavouriteIcon({ offer }) {
 
   const handleClick = async () => {
     try {
-      // Lógica para agregar o quitar favoritos
       const isInfavorites = isFavoriteOffer();
 
       if (isInfavorites) {
-        // Si es un favorito, quitarlo de la lista
         const newFavorites = favorites.filter((favorite) => favorite != offer);
         setFavorites(newFavorites);
         await deleteFromFavorites(offer.id);

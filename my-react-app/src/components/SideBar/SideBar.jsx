@@ -12,11 +12,12 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import HomeIcon from "@mui/icons-material/Home";
 import MailIcon from "@mui/icons-material/Mail";
-import StarIcon from '@mui/icons-material/Star';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import StarIcon from "@mui/icons-material/Star";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Favorite, Star } from "@mui/icons-material";
 import FavouriteIcon from "../FavouriteIcon/FavouriteIcon";
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import MapIcon from "@mui/icons-material/Map";
 import { Link } from "react-router-dom";
 
 function SideBar() {
@@ -41,39 +42,49 @@ function SideBar() {
       onClick={toggleDrawer(false)} // If we click on the drawer's empty space or press any key, the drawer closes
       onKeyDown={toggleDrawer(false)}
     >
-     
-     <List>
-  {["Profile", "Inbox", "Favorites", "Subscriptions", "Home"].map((text) => (
-   <Link key={text} to={text === "Favorites" ? "/favorites" : text === "Home" ? "/home_user" : text === "Subscriptions" ? "/subscriptions_profile" : "/profile_user"}>
-
-      <ListItem key={text} disablePadding>
-        <ListItemButton>
-          <ListItemIcon>
-            {text === "Profile" ? (
-              <AccountCircleIcon />
-            ) : text === "Inbox" ? (
-              <MailIcon />
-            ) : text === "Favorites" ? (
-              <Favorite />
-            ) : text === "Subscriptions" ? (
-              <SubscriptionsIcon/>
-            ) : text === "Home" ? (
-              <HomeIcon /> 
-            ) : null}
-          </ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItemButton>
-      </ListItem>
-    </Link>
-  ))}
-</List>
-
+      <List>
+        {["Profile", "Inbox", "Favorites", "Subscriptions", "Map"].map(
+          (text) => (
+            <Link
+              key={text}
+              to={
+                text === "Favorites"
+                  ? "/favorites"
+                  : text === "Map"
+                  ? "/home_user"
+                  : text === "Subscriptions"
+                  ? "/subscriptions_profile"
+                  : "/profile_user"
+              }
+            >
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {text === "Profile" ? (
+                      <AccountCircleIcon />
+                    ) : text === "Inbox" ? (
+                      <MailIcon />
+                    ) : text === "Favorites" ? (
+                      <Favorite />
+                    ) : text === "Subscriptions" ? (
+                      <SubscriptionsIcon />
+                    ) : text === "Map" ? (
+                      <MapIcon />
+                    ) : null}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          )
+        )}
+      </List>
     </Box>
   );
 
   return (
     <div>
-      <Button  onClick={toggleDrawer(true)}>Menu</Button>
+      <Button onClick={toggleDrawer(true)}>Menu</Button>
       <SwipeableDrawer
         anchor="left"
         open={open} // Depends on the state variable
