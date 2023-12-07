@@ -22,12 +22,12 @@
 
 .photoInfoCompany{
     position: absolute;
-    bottom: 10px;
+    bottom: -36px;
    left: 35rem;
 }
 .photoInfoUser{
     position: absolute;
-    bottom: 0px;
+    bottom: -30px;
     right: -40px;
 }
 

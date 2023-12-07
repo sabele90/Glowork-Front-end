@@ -107,7 +107,7 @@ export default function OfferSubscription() {
         <Card
           sx={{
             width: "30%",
-            padding: "4%",
+            padding: "5%",
             marginTop: "3%",
             marginLeft: "2rem",
             height: "66%",

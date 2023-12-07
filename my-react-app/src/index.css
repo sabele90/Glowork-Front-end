@@ -13,6 +13,6 @@ body {
   .leaflet-container{
     z-index: 1;
     height: 560px;
-    width: 930px;
+    width: 800px;
     border-radius: 5%;
 }
