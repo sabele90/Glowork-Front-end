@@ -15,10 +15,12 @@ export default function OfferCard({ offer }) {
       className="offerCard"
       sx={{
         maxWidth: 345,
-        margin: 2,
+        maxHeight: 645,
+        margin: 3,
         display: "flex",
         flexDirection: "column", // Por defecto, establece la dirección del eje principal a columna
-        flexWrap: "wrap", // Asegura que las tarjetas se envuelvan en una nueva línea
+        flexWrap: "wrap", 
+        justifyContent: "space-between",
         '@media screen and (max-width: 700px)': {
           width: "100%", 
          
@@ -39,11 +41,13 @@ export default function OfferCard({ offer }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ alignSelf: "flex-end" }}>
-        <FavouriteIcon offer={offer} />
-
+     
+          <FavouriteIcon offer={offer} />
+      
         <Link to={`/offer_subscrptions/${offer.id}`}>
           <Button size="small">MORE INFO</Button>
         </Link>
+       
       </CardActions>
     </Card>
   );

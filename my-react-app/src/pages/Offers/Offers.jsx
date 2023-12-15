@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { getOffersByContinent, getOffersByCountry } from "../../services/offer";
 import React from "react";
 import { useParams, useLocation } from "react-router-dom";
-import CountryList from "../../components/CountryList/CountryList";
-
 export default function Offers() {
   const [offers, setOffers] = useState([]);
   const [favoriteOffers, setFavoriteOffers] = useState([]);
@@ -51,10 +49,10 @@ export default function Offers() {
 
   return (
     <>
-     <img
-            className="backgroundTop"
-            src="/src/assets/images/backgroundTop.png"
-          ></img>
+      <img
+        className="backgroundTop"
+        src="/src/assets/images/backgroundTop.png"
+      ></img>
 
       <div className="OfferList">
         {offers.map((offer, i) => (

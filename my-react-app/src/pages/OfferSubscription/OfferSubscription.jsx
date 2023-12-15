@@ -110,7 +110,7 @@ export default function OfferSubscription() {
             padding: "5%",
             marginTop: "3%",
             marginLeft: "2rem",
-            height: "66%",
+            height: "63%",
             backgroundColor: "rgba(255, 255, 255, 0.5)",
             borderRadius: "10px",
             display: "flex",
