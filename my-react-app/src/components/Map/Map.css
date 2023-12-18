@@ -1,36 +1,36 @@
 .App {
+  margin-top: -10px;
+  text-align: center;
+}
 
-    margin-top: -10px;
-    text-align: center;
-   
-  
-  }
-  
-  .App > div{
-    height: 94vh !important;
-  }
-  
-  path {
-    stroke: none !important;
-    stroke-width: 0 !important;
-  }
- tspan {
+.App > div {
+  height: 94vh !important;
+}
+
+path {
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+
+tspan {
   display: none;
   background-color: transparent;
   color: transparent;
- }
- rect {
- display: none;
- }
- polygon {
-  display: none;
-  }
-  path:hover {
-    transform: scale(1.1);
-    transition: transform 0.6s ease-in-out; 
-  }
+}
 
-  rect{
-    height: 65px;
-  }
-  
+rect {
+  display: none;
+}
+
+polygon {
+  display: none;
+}
+
+path:hover {
+  transform: scale(1.1);
+  transition: transform 0.6s ease-in-out;
+}
+
+rect {
+  height: 65px;
+}

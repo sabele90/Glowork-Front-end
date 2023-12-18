@@ -1,5 +1,5 @@
 import "./OfferCard.css";
-import React, { useState } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -19,12 +19,11 @@ export default function OfferCard({ offer }) {
         margin: 3,
         display: "flex",
         flexDirection: "column", // Por defecto, establece la dirección del eje principal a columna
-        flexWrap: "wrap", 
+        flexWrap: "wrap",
         justifyContent: "space-between",
-        '@media screen and (max-width: 700px)': {
-          width: "100%", 
-         
-        }
+        "@media screen and (max-width: 700px)": {
+          width: "100%",
+        },
       }}
     >
       <CardMedia
@@ -41,13 +40,11 @@ export default function OfferCard({ offer }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ alignSelf: "flex-end" }}>
-     
-          <FavouriteIcon offer={offer} />
-      
+        <FavouriteIcon offer={offer} />
+
         <Link to={`/offer_subscrptions/${offer.id}`}>
           <Button size="small">MORE INFO</Button>
         </Link>
-       
       </CardActions>
     </Card>
   );

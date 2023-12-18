@@ -1,6 +1,5 @@
 import { Autocomplete, TextField } from "@mui/material";
 import * as React from "react";
-
 import "./Nationality.css";
 
 export default function Nationality() {
